@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void openGallery() {
+    private void    openGallery() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         launchGallery.launch(intent);
     }
