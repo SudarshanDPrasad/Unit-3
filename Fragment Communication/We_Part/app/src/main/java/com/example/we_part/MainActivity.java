@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements CommunicationList
 
     private void launchstudentpersonaldeatils() {
         fragmentManager = getSupportFragmentManager();
-
         StudentPersonalDetailsFragment studentPersonalDetailsFragment = new StudentPersonalDetailsFragment();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.container, studentPersonalDetailsFragment, "Personal").commit();
