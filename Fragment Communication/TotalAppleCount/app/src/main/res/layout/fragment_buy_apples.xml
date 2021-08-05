@@ -12,11 +12,4 @@
         android:layout_margin="20dp"
         android:hint="Enter the number of Apples to buy " />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnback"
-        android:layout_below="@id/ettobuyapples"
-        android:layout_centerInParent="true"
-        android:text="back" />
 </RelativeLayout>

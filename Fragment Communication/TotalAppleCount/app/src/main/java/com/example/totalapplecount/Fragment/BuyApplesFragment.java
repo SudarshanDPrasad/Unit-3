@@ -25,7 +25,6 @@ import com.example.totalapplecount.R;
 public class BuyApplesFragment extends Fragment {
 
     private EditText ettobuyapples;
-    private Button btnback;
     private CommunicationListener listener;
     private int age;
 
@@ -49,7 +48,7 @@ public class BuyApplesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initviews(view);
-        change();
+
 
     }
 
@@ -63,24 +62,7 @@ public class BuyApplesFragment extends Fragment {
 
     private void initviews(View view) {
         ettobuyapples = view.findViewById(R.id.ettobuyapples);
-        btnback = view.findViewById(R.id.btnback);
 
-        btnback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int check1 = Integer.parseInt(ettobuyapples.getText().toString());
-                if (check1 < age) {
-                    Bundle bundle = new Bundle();
-                    int check = Integer.parseInt(ettobuyapples.getText().toString());
-                    int remaning = age - check;
-                    String data = String.valueOf(remaning);
-                    bundle.putString("totaltobuy", data);
-                    listener.launchTotalNoOfApplesFragment(bundle);
-                } else {
-                    Toast.makeText(getActivity(), "Please check the qunantity", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
     }
 
 
@@ -90,7 +72,19 @@ public class BuyApplesFragment extends Fragment {
         listener = (CommunicationListener) context;
     }
 
-    public void change() {
-
+    @Override
+    public void onPause() {
+        super.onPause();
+        int check1 = Integer.parseInt(ettobuyapples.getText().toString());
+        if (check1 < age) {
+            Bundle bundle = new Bundle();
+            int check = Integer.parseInt(ettobuyapples.getText().toString());
+            int remaning = age - check;
+            String data = String.valueOf(remaning);
+            bundle.putString("totaltobuy", data);
+            listener.launchTotalNoOfApplesFragment(bundle);
+        } else {
+            Toast.makeText(getActivity(), "Please check the qunantity", Toast.LENGTH_SHORT).show();
+        }
     }
 }
