@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements CommunicationList
         TotalApplesFragment totalApplesFragment = new TotalApplesFragment();
         totalApplesFragment.setArguments(bundle);
         fragmentTransaction.replace(R.id.flcontainer, totalApplesFragment, "TotalApples").addToBackStack("TotalApples").commit();
-        fragmentManager.popBackStack();
+        
 
     }
 }
