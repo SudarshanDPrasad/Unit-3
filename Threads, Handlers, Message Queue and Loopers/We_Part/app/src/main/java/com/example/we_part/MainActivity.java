@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 workerThread.addTasktoMessagequeue(task1);
+                Toast.makeText(MainActivity.this,"task 1" + Thread.currentThread().getName(),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 workerThread.addTasktoMessagequeue(task2);
+                Toast.makeText(MainActivity.this,"task 2 " + Thread.currentThread().getName(),Toast.LENGTH_SHORT).show();
+
             }
         });
     }
