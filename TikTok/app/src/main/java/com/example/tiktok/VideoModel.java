@@ -2,12 +2,14 @@ package com.example.tiktok;
 
 public class VideoModel {
 
-    String VideoUrl,title,desc;
+    String VideoUrl, title, desc, like, comments;
 
-    public VideoModel(String videoUrl, String title, String desc) {
+    public VideoModel(String videoUrl, String title, String desc, String like, String comments) {
         VideoUrl = videoUrl;
         this.title = title;
         this.desc = desc;
+        this.like = like;
+        this.comments = comments;
     }
 
     public void setVideoUrl(String videoUrl) {
@@ -32,5 +34,13 @@ public class VideoModel {
 
     public String getDesc() {
         return desc;
+    }
+
+    public String getLike() {
+        return like;
+    }
+
+    public String getComments() {
+        return comments;
     }
 }
