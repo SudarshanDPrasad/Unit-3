@@ -9,8 +9,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.evaluationpraticesprint_2.PreferenceHelper;
 import com.example.evaluationpraticesprint_2.R;
 
@@ -18,7 +20,8 @@ import com.example.evaluationpraticesprint_2.R;
 public class ItemDetailsFragment extends Fragment {
 
 
-    private TextView Tvtitlle1;
+    private TextView Tvtitlle1, TvSubTittle;
+    private ImageView imageview;
 
 
     @Override
@@ -29,11 +32,17 @@ public class ItemDetailsFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull  View view, @Nullable  Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Tvtitlle1 = view.findViewById(R.id.TvTittlefragment);
-//        PreferenceHelper.getInstance(getContext());
-        String data = PreferenceHelper.getStringFromPreference(getContext(),"data");
+        TvSubTittle = view.findViewById(R.id.TvSubTittle);
+        imageview = view.findViewById(R.id.imageview);
+
+
+        String data = PreferenceHelper.getStringFromPreference(getContext(), "data");
         Tvtitlle1.setText(data);
+        String SubTittle = PreferenceHelper.getStringFromPreference(getContext(),"SubTittle");
+        TvSubTittle.setText(SubTittle);
+        Glide.with(imageview).load(PreferenceHelper.getStringFromPreference(getContext(),"image")).into(imageview);
     }
 }

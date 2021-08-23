@@ -126,6 +126,8 @@ public class ItemListFragment extends Fragment implements ItemClickListener {
     public void onItemClick(ResponseModel responseModel, int postion) {
 
         PreferenceHelper.writeStringToPreference(getContext(),"data",responseModel.getTitle());
+        PreferenceHelper.writeStringToPreference(getContext(),"SubTittle",responseModel.getSubTitle());
+        PreferenceHelper.writeStringToPreference(getContext(),"Image",responseModel.getImage());
 
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         ItemDetailsFragment itemDetailsFragment = new ItemDetailsFragment();
