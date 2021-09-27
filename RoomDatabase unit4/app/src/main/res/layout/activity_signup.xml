@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/tvName"
+            android:text="Name :"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_below="@id/tvName"
+            android:id="@+id/EtName"
+            android:hint="Enter the Name "
+            android:background="@drawable/edit_box"
+            android:padding="10dp"
+            android:layout_marginRight="20sp"
+            android:layout_marginLeft="20sp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Email id : "
+            android:layout_below="@id/EtName"
+            android:layout_margin="20sp"
+            android:id="@+id/TvEmail"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_below="@id/TvEmail"
+            android:id="@+id/EtEmail"
+            android:hint="Enter the Email id "
+            android:background="@drawable/edit_box"
+            android:padding="10dp"
+            android:layout_marginRight="20sp"
+            android:layout_marginLeft="20sp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Password : "
+            android:layout_margin="20sp"
+            android:layout_below="@id/EtEmail"
+            android:id="@+id/TvPassword"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_below="@id/TvPassword"
+            android:id="@+id/EtPassword"
+            android:hint="Enter the Password"
+            android:background="@drawable/edit_box"
+            android:padding="10dp"
+            android:layout_marginRight="20sp"
+            android:layout_marginLeft="20sp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnsignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/EtAge"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginBottom="20sp"
+            android:text="Login" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/TvAge"
+            android:text="Age :"
+            android:layout_margin="20dp"
+            android:layout_below="@id/EtPassword"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_below="@id/TvAge"
+            android:id="@+id/EtAge"
+            android:hint="Enter the Age "
+            android:background="@drawable/edit_box"
+            android:padding="10dp"
+            android:layout_marginRight="20sp"
+            android:layout_marginLeft="20sp"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</RelativeLayout>

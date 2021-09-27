@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/project/Pratice/RoomDatabase unit4/app/src/main/res/drawable/edit_box.xml" value="0.26614583333333336" />
+        <entry key="..\:/project/Pratice/RoomDatabase unit4/app/src/main/res/layout/activity_add.xml" value="0.15307971014492755" />
+        <entry key="..\:/project/Pratice/RoomDatabase unit4/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/project/Pratice/RoomDatabase unit4/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/project/Pratice/RoomDatabase unit4/app/src/main/res/layout/activity_signup.xml" value="0.264" />
+        <entry key="..\:/project/Pratice/RoomDatabase unit4/app/src/main/res/layout/add_task_layout.xml" value="0.1793478260869565" />
+        <entry key="..\:/project/Pratice/RoomDatabase unit4/app/src/main/res/layout/task_item_row.xml" value="0.176" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
