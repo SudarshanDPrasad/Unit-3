@@ -52,9 +52,9 @@ class TaskRepo(val taskDAO: TaskDAO) {
         }
     }
 
-//    fun addTaskToRoom(taskIncome: TaskIncome) {
-//        CoroutineScope(Dispatchers.IO).launch {
-//            taskDAO.addTaskincome(taskIncome)
-//        }
-//    }
+    fun addTaskToRoom(taskIncome: TaskIncome) {
+        CoroutineScope(Dispatchers.IO).launch {
+            taskDAO.addTaskincome(taskIncome)
+        }
+    }
 }

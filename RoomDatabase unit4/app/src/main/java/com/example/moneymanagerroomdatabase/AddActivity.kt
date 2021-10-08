@@ -48,7 +48,7 @@ class AddActivity : AppCompatActivity() {
                 title = "Income")
 
 
-            viewmodel.createNewTask(createTaskRequestModel)
+            viewmodel.addTask(adding)
 
 
             CoroutineScope(Dispatchers.IO).launch {

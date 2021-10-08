@@ -38,8 +38,8 @@ class TaskViewModel(private val repo: TaskRepo) : ViewModel() {
         repo.createTask(createTaskRequestModel)
     }
 
-//    fun addTask(taskIncome: TaskIncome) {
-//        repo.addTaskToRoom(taskIncome)
-//    }
+    fun addTask(taskIncome: TaskIncome) {
+        repo.addTaskToRoom(taskIncome)
+    }
 
 }
