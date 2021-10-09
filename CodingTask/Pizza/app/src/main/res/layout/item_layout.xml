@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="name"
+            type="com.example.pizzaandroid.response.Crust" />
+
+        <variable
+            name="desc"
+            type="com.example.pizzaandroid.response.Size" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_pizza"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/pizza" />
+
+        <TextView
+            android:id="@+id/Pizza_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_toRightOf="@id/image_pizza"
+            android:text="@{name.name}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Pizza_Name"
+            android:layout_margin="20dp"
+            android:layout_toRightOf="@id/image_pizza"
+            android:text="@{desc.name}" />
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/qunatity"
+            android:background="@drawable/ic_baseline_add_24" />
+
+        <TextView
+            android:id="@+id/qunatity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/lessbutton"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/lessbutton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="26dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/ic_baseline_minimize_24" />
+    </RelativeLayout>
+
+</layout>

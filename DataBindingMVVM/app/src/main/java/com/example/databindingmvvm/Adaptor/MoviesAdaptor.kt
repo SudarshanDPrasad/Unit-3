@@ -2,15 +2,18 @@ package com.example.recyclerdatabinding.Adaptor
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.databindingmvvm.R
 import com.example.databindingmvvm.databinding.ItemLayoutBinding
 import com.example.databindingmvvm.response.Result
 
 class MoviesAdaptor(
     val movieslist: MutableList<Result>,
-) : RecyclerView.Adapter<MovieHolder>() {
+) : RecyclerView.Adapter<MoviesAdaptor.MovieHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieHolder {
         val itemLayoutBinding: ItemLayoutBinding =
             DataBindingUtil.inflate(LayoutInflater.from(parent.context),
@@ -27,15 +30,16 @@ class MoviesAdaptor(
         return movieslist.size
     }
 
-}
 
-class MovieHolder(
-    val itemlayoutBinding: ItemLayoutBinding,
-) : RecyclerView.ViewHolder(itemlayoutBinding.root) {
+    class MovieHolder(
+        val itemlayoutBinding: ItemLayoutBinding,
+    ) : RecyclerView.ViewHolder(itemlayoutBinding.root) {
 
-    fun onBind(result: Result) {
-        itemlayoutBinding.moviesItem = result
+        fun onBind(result: Result) {
+            itemlayoutBinding.moviesItem = result
+
+        }
 
     }
-
 }
+

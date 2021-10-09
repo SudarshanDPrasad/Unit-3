@@ -3,9 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/unit-3-Projects/DataBindingMVVM/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
-        <entry key="..\:/unit-3-Projects/DataBindingMVVM/app/src/main/res/layout/item_layout.xml" value="0.1793478260869565" />
-        <entry key="..\:/unit-3-Projects/SudarshanGithub/DataBindingMVVM/app/src/main/res/layout/item_layout.xml" value="0.17300724637681159" />
+        <entry key="..\:/unit-3-Projects/CodingTask/Pizza/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/unit-3-Projects/CodingTask/Pizza/app/src/main/res/layout/item_layout.xml" value="0.264" />
+        <entry key="..\:/unit-3-Projects/SudarshanGithub/CodingTask/Pizza/app/src/main/res/layout/item_layout.xml" value="0.25" />
       </map>
     </option>
   </component>
