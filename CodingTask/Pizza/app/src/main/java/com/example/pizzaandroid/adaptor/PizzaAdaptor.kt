@@ -6,13 +6,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pizzaandroid.R
 import com.example.pizzaandroid.databinding.ItemLayoutBinding
+import com.example.pizzaandroid.onCLiclListener.OnClickListener
 import com.example.pizzaandroid.response.Crust
 import com.example.pizzaandroid.response.Response_Model
 import com.example.pizzaandroid.response.Size
 
 class PizzaAdaptor(
-    val pizzaList: List<Crust>,
-    val pizzasize : List<Size>
+    val pizzaList: MutableList<Crust>,
+    val listener: OnClickListener
 ) : RecyclerView.Adapter<PizzaAdaptor.PizzaHodler>() {
 
 
@@ -25,10 +26,15 @@ class PizzaAdaptor(
 
     override fun onBindViewHolder(holder: PizzaHodler, position: Int) {
 
-        val list = pizzasize[position]
-        holder.onBind(list)
+//        val list = pizzaList[position]
+//        holder.onBind(list)
         val list1 = pizzaList[position]
         holder.onBinding(list1)
+
+        holder.itemLayoutBinding.add.setOnClickListener {
+            listener.onClick(list1)
+
+        }
     }
 
     override fun getItemCount(): Int {
@@ -39,8 +45,8 @@ class PizzaAdaptor(
         val itemLayoutBinding: ItemLayoutBinding,
     ) : RecyclerView.ViewHolder(itemLayoutBinding.root) {
 
-        fun onBind(size: Size) {
-            itemLayoutBinding.desc = size
+        fun onBind(responseModel: Response_Model) {
+            itemLayoutBinding.desc = responseModel
         }
 
         fun onBinding(crust: Crust) {

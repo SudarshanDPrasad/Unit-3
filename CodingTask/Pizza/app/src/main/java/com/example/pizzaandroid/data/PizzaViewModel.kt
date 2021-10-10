@@ -15,20 +15,12 @@ class PizzaViewModel : ViewModel() {
     private val repo = PizzaRepo()
     private val mutableLiveData = MutableLiveData<List<Crust>>()
     val liveData: LiveData<List<Crust>> = mutableLiveData
-    private val mutableLiveDatacrust = MutableLiveData<List<Size>>()
-    val liveDatacrust: LiveData<List<Size>> = mutableLiveDatacrust
+
 
     fun callApi() {
         CoroutineScope(Dispatchers.IO).launch {
             val response = repo.getAllData()
             mutableLiveData.postValue(response)
-        }
-    }
-
-    fun callApicrust() {
-        CoroutineScope(Dispatchers.IO).launch {
-            val response1 = repo.getAllDatacrust()
-            mutableLiveDatacrust.postValue(response1)
         }
     }
 }

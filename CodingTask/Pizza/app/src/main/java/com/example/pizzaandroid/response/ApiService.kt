@@ -7,6 +7,4 @@ interface ApiService {
     @GET("pizzas")
     suspend fun getcartfromapi() : Response_Model
 
-    @GET("pizzas")
-    suspend fun getcartfromapicrust() : Crust
 }

@@ -2,6 +2,8 @@ package com.example.pizzaandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -10,16 +12,17 @@ import com.example.pizzaandroid.adaptor.PizzaAdaptor
 import com.example.pizzaandroid.data.MainUIModel
 import com.example.pizzaandroid.data.PizzaViewModel
 import com.example.pizzaandroid.databinding.ActivityMainBinding
+import com.example.pizzaandroid.onCLiclListener.OnClickListener
 import com.example.pizzaandroid.response.Crust
 import com.example.pizzaandroid.response.Response_Model
 import com.example.pizzaandroid.response.Size
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnClickListener {
 
     lateinit var activityMainBinding: ActivityMainBinding
     private lateinit var pizzaViewModel: PizzaViewModel
     private var list = mutableListOf<Crust>()
-    private var list1= mutableListOf<Size>()
     lateinit var pizzaAdaptor: PizzaAdaptor
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,11 +32,11 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
-        activityMainBinding.apply {
-            pizzaAdaptor = PizzaAdaptor(list,list1)
+        activityMainBinding.recyclerView.apply {
+            pizzaAdaptor = PizzaAdaptor(list, this@MainActivity)
             val linearLayoutManager = LinearLayoutManager(this@MainActivity)
-            recyclerView.adapter = pizzaAdaptor
-            recyclerView.layoutManager = linearLayoutManager
+            adapter = pizzaAdaptor
+            layoutManager = linearLayoutManager
         }
 
         pizzaViewModel = ViewModelProvider(this).get(PizzaViewModel::class.java)
@@ -44,11 +47,22 @@ class MainActivity : AppCompatActivity() {
             list.addAll(it)
             pizzaAdaptor.notifyDataSetChanged()
         })
-        pizzaViewModel.callApicrust()
-        pizzaViewModel.liveDatacrust.observe(this,{
-            list1.clear()
-            list1.addAll(it)
-            pizzaAdaptor.notifyDataSetChanged()
-        })
+
+    }
+
+    override fun onClick(crust: Crust) {
+
+        val bottomDialog = BottomSheetDialog(
+            this@MainActivity, R.style.BottomSheetDialogTheme
+        )
+
+        val bottomSheetView = LayoutInflater.from(applicationContext).inflate(
+            R.layout.bottom_sheet_activity,
+            findViewById<LinearLayout>(R.id.bottmsheet)
+        )
+
+        Toast.makeText(this, "hey its working ", Toast.LENGTH_SHORT).show()
+        bottomDialog.setContentView(bottomSheetView)
+        bottomDialog.show()
     }
 }

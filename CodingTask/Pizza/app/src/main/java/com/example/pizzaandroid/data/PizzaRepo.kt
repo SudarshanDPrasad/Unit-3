@@ -9,9 +9,4 @@ class PizzaRepo {
     suspend fun getAllData() : List<Crust>{
         return ServiceGenerator.getApiService().getcartfromapi().crusts
     }
-
-    suspend fun getAllDatacrust() : List<Size> {
-        return ServiceGenerator.getApiService().getcartfromapicrust().sizes
-    }
-
 }
