@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="size"
+            type="com.example.pizzaandroid.response.Size" />
+
+        <variable
+            name="click"
+            type="com.example.pizzaandroid.onCLiclListener.OnClickListener" />
+    </data>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/image_pizza"
+                android:layout_width="@dimen/dimensions100dp"
+                android:layout_height="@dimen/dimensions100dp"
+                android:layout_margin="@dimen/dimensions20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/pizza" />
+
+            <TextView
+                android:id="@+id/Pizza_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimensions20dp"
+                android:layout_toRightOf="@id/image_pizza"
+                android:text="@{size.name}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Pizza_Name"
+                android:id="@+id/Pizzaprice"
+                android:layout_margin="@dimen/dimensions20dp"
+                android:layout_toRightOf="@id/image_pizza" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:text="@string/add"
+                android:id="@+id/add"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/dimensions20dp"
+                android:visibility="visible"
+                android:layout_marginTop="@dimen/dimensions20dp"
+                android:onClick="@{()->click.onAddClick(size)}"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:id="@+id/remove"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/add"
+                android:text="@string/remove"
+                android:onClick="@{()->click.onRemoveCLick(size)}"
+                android:layout_marginEnd="@dimen/dimensions20dp"
+                android:layout_height="wrap_content" />
+
+
+        </RelativeLayout>
+
+</layout>

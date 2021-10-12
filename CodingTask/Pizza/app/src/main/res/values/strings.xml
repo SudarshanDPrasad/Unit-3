@@ -2,5 +2,6 @@
     <string name="app_name">PizzaAndroid</string>
     <string name="add">ADD +</string>
     <string name="bottom_sheet_behavior" translatable="false">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
+    <string name="remove">remove -</string>
 
 </resources>

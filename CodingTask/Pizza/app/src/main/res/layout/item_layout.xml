@@ -11,6 +11,10 @@
         <variable
             name="desc"
             type="com.example.pizzaandroid.response.Response_Model" />
+
+        <variable
+            name="click"
+            type="com.example.pizzaandroid.onCLiclListener.OnClickListener" />
     </data>
 
 
@@ -38,6 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/Pizza_Name"
+            android:id="@+id/Pizza_desc"
             android:layout_margin="@dimen/dimensions20dp"
             android:layout_toRightOf="@id/image_pizza"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
@@ -50,6 +55,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginRight="@dimen/dimensions20dp"
             android:layout_marginTop="@dimen/dimensions20dp"
+            android:onClick="@{()->click.onClick(name)}"
             android:layout_height="wrap_content" />
     </RelativeLayout>
 
