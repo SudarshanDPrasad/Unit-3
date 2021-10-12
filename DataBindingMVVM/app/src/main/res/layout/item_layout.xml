@@ -4,7 +4,7 @@
     <data>
     <variable
         name="MoviesItem"
-        type="com.example.databindingmvvm.response.Result" />
+        type="com.example.databindingmvvm.response.IndianToon" />
 
 </data>
 
@@ -22,12 +22,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <ImageView
                 android:id="@+id/image_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_margin="20dp"
-                android:text="@{MoviesItem.title}" />
+                android:scaleType="fitXY"/>
 
             <TextView
                 android:id="@+id/Movie_Title"
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/image_view"
                 android:layout_margin="20dp"
-                android:text="@{MoviesItem.originalLanguage}" />
+                android:text="@{MoviesItem.language}" />
 
             <TextView
                 android:id="@+id/Movie_Lang"
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/Movie_Title"
                 android:layout_margin="20dp"
-                android:text="@{MoviesItem.overview}" />
+                android:text="@{MoviesItem.description}" />
 
         </RelativeLayout>
 

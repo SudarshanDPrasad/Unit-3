@@ -9,10 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.databindingmvvm.R
 import com.example.databindingmvvm.databinding.ItemLayoutBinding
+import com.example.databindingmvvm.response.IndianToon
 import com.example.databindingmvvm.response.Result
 
 class MoviesAdaptor(
-    val movieslist: MutableList<Result>,
+    val movieslist: MutableList<IndianToon>,
 ) : RecyclerView.Adapter<MoviesAdaptor.MovieHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieHolder {
         val itemLayoutBinding: ItemLayoutBinding =
@@ -35,9 +36,11 @@ class MoviesAdaptor(
         val itemlayoutBinding: ItemLayoutBinding,
     ) : RecyclerView.ViewHolder(itemlayoutBinding.root) {
 
-        fun onBind(result: Result) {
+        fun onBind(result: IndianToon) {
             itemlayoutBinding.moviesItem = result
-
+            Glide.with(itemlayoutBinding.imageView)
+                .load(result.image)
+                .into(itemlayoutBinding.imageView)
         }
 
     }

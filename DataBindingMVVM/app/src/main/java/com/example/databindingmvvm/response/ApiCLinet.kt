@@ -1,9 +1,11 @@
 package com.example.recyclerdatabinding.response
 
 import com.example.databindingmvvm.response.Responsemodel
+import com.example.databindingmvvm.response.indiantoonresponse
 import retrofit2.http.GET
 
+//https://run.mocky.io/v3/0404dd7e-c1ba-4669-b14b-3331f46741ec
 interface ApiCLinet {
-    @GET("movie/popular/?api_key=2147294b386ecadcb05cd19bcbbdddb9")
-   suspend fun getAPIResponse(): Responsemodel
+    @GET("v3/0404dd7e-c1ba-4669-b14b-3331f46741ec")
+   suspend fun getAPIResponse(): indiantoonresponse
 }

@@ -10,6 +10,7 @@ import com.example.databindingmvvm.response.Network
 import com.example.databindingmvvm.R
 import com.example.databindingmvvm.databinding.ActivityMainBinding
 import com.example.databindingmvvm.repo.MovieRepo
+import com.example.databindingmvvm.response.IndianToon
 import com.example.databindingmvvm.response.Result
 import com.example.databindingmvvm.viewmodel.MovieViewModel
 import com.example.databindingmvvm.viewmodel.MovieViewModelFactory
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var moviesAdaptor: MoviesAdaptor
     lateinit var movieViewModel: MovieViewModel
     lateinit var apiCLinet: ApiCLinet
-    var movielist = mutableListOf<Result>()
+    var movielist = mutableListOf<IndianToon>()
     lateinit var activityMainBinding: ActivityMainBinding
 
     @SuppressLint("NotifyDataSetChanged")
