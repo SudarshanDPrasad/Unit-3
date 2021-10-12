@@ -23,11 +23,18 @@ class PizzaRepo(val dao: Dao) {
 
     fun insertData(cartData: CartData) {
         CoroutineScope(Dispatchers.IO).launch {
-            dao.insertData(cartData)
+            val listresponse = dao.getSelected(cartData.PizzaName, cartData.PizzaSize)
+            if (listresponse.size > 0) {
+                var olddata = listresponse.get(0)
+                olddata.PizzaPrice = olddata.PizzaPrice + cartData.PizzaPrice
+                dao.UpdateData(olddata)
+            } else {
+                dao.insertData(cartData)
+            }
         }
     }
 
-    fun getDataFormDB() : LiveData<List<CartData>>{
+    fun getDataFormDB(): LiveData<List<CartData>> {
         return dao.getData()
     }
 }

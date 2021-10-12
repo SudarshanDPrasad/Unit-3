@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pizzaandroid.DataModel.CartData
 import com.example.pizzaandroid.R
 import com.example.pizzaandroid.databinding.CrustItemLayoutBinding
 import com.example.pizzaandroid.databinding.ItemLayoutBinding
 import com.example.pizzaandroid.onCLiclListener.OnClickListener
+import com.example.pizzaandroid.response.Crust
 import com.example.pizzaandroid.response.Size
 
 class CrustAdaptor(
@@ -27,6 +29,7 @@ class CrustAdaptor(
     override fun onBindViewHolder(holder: CrustHolder, position: Int) {
         val list = sizelist[position]
         holder.onBinding(list)
+
     }
 
     override fun getItemCount(): Int {

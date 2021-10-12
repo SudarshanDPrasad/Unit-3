@@ -9,6 +9,10 @@
             type="com.example.pizzaandroid.response.Size" />
 
         <variable
+            name="crust"
+            type="com.example.pizzaandroid.response.Crust" />
+
+        <variable
             name="click"
             type="com.example.pizzaandroid.onCLiclListener.OnClickListener" />
     </data>
@@ -41,6 +45,15 @@
                 android:id="@+id/Pizzaprice"
                 android:layout_margin="@dimen/dimensions20dp"
                 android:layout_toRightOf="@id/image_pizza" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Pizza_Name"
+                android:id="@+id/PizzaName"
+                android:text="@{crust.name}"
+                android:layout_margin="@dimen/dimensions20dp"
+                android:layout_toRightOf="@id/Pizzaprice" />
 
             <Button
                 android:layout_width="wrap_content"

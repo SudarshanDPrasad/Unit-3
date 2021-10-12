@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     lateinit var dao: Dao
     var count: Int = 0
     var sum: Int = 0
+    var newData = CartData("",0.0,"")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,15 +80,12 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         val bottomDialog = BottomSheetDialog(
             this@MainActivity, R.style.BottomSheetDialogTheme
         )
-
         val bottomSheetView = LayoutInflater.from(applicationContext).inflate(
             R.layout.bottom_sheet_activity, bottomSheetActivityBinding.bottomsheet
 //            findViewById<LinearLayout>(R.id.bottomsheet) ( Since we are using data binding we should not use find view by id )
         )
-
         var listonclick = arrayListOf<Size>()
         listonclick.addAll(crust.sizes)
-
 
 //        setContentView(bottomSheetActivityBinding.root) ( bec of root error )
 
@@ -101,6 +99,8 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             val intent = Intent(this@MainActivity, CartActivity::class.java)
             startActivity(intent)
         }
+
+        newData.PizzaName =crust.name
         bottomDialog.setContentView(bottomSheetView)
         bottomDialog.show()
     }
@@ -120,7 +120,8 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
         }
         Toast.makeText(this, "the item is added to cart ", Toast.LENGTH_SHORT).show()
-        val newData = CartData(size.name, size.price)
+        newData.PizzaSize = size.name
+        newData.PizzaPrice = size.price
         pizzaViewModel.addToDb(newData)
     }
 
