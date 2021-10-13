@@ -6,7 +6,7 @@ import com.example.pagination_recyclerview.api.NetworkHelper
 import com.example.pagination_recyclerview.response.Response_Model
 import com.example.pagination_recyclerview.response.Result
 
-class ResultPagingSource : PagingSource<Int, com.example.pagination_recyclerview.response.Result>() {
+class ResultPagingSource : PagingSource<Int, Result>() {
 
 
     private val apiService = NetworkHelper.getApiService()
@@ -15,7 +15,7 @@ class ResultPagingSource : PagingSource<Int, com.example.pagination_recyclerview
 
         val pageNumber = params.key ?: 1
         val responseModel: Response_Model = apiService.getAllDetails(pageNumber)
-        val result: List<com.example.pagination_recyclerview.response.Result> = responseModel.results
+        val result: List<Result> = responseModel.results
 
         return try {
             LoadResult.Page(
