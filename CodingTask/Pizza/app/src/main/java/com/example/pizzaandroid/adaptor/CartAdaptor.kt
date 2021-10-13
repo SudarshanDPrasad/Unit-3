@@ -8,24 +8,38 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pizzaandroid.DataModel.CartData
 import com.example.pizzaandroid.R
+import com.example.pizzaandroid.databinding.CartDataLayoutBinding
 import com.example.pizzaandroid.databinding.CrustItemLayoutBinding
 import com.example.pizzaandroid.onCLiclListener.OnClickListener
+import com.example.pizzaandroid.onCLiclListener.OnDeleteListener
 import com.example.pizzaandroid.response.Size
+import kotlinx.android.synthetic.main.cart_data_layout.view.*
 import kotlinx.android.synthetic.main.item_layout.view.*
 
-class CartAdaptor (
+class CartAdaptor(
     val cartList: List<CartData>,
+    val listener: OnDeleteListener,
 
     ) : RecyclerView.Adapter<CartAdaptor.CartHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout,parent,false)
-        return CartHolder(view)
+        val cartDataLayoutBinding: CartDataLayoutBinding =
+            DataBindingUtil.inflate(LayoutInflater.from(parent.context),
+                R.layout.cart_data_layout, parent, false)
+        return CartHolder(cartDataLayoutBinding, listener)
 
     }
 
     override fun onBindViewHolder(holder: CartHolder, position: Int) {
         val list = cartList[position]
         holder.onBinding(list)
+
+        holder.cartDataLayoutBinding.deleteitem.setOnClickListener {
+            listener.onDelete(list)
+        }
+
+        holder.cartDataLayoutBinding.addextra.setOnClickListener {
+            listener.onAddExtra(list)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -34,11 +48,17 @@ class CartAdaptor (
 
 
     class CartHolder(
-        val itemView: View,
-    ) : RecyclerView.ViewHolder(itemView) {
+        val cartDataLayoutBinding: CartDataLayoutBinding,
+        val listener: OnDeleteListener
+    ) : RecyclerView.ViewHolder(cartDataLayoutBinding.root) {
 
         fun onBinding(cartData: CartData) {
-            itemView.Pizza_Name.text = cartData.PizzaSize
+            cartDataLayoutBinding.Pizzadataname.text = cartData.PizzaName
+            cartDataLayoutBinding.Pizzadatasize.text = cartData.PizzaSize
+            cartDataLayoutBinding.Pizzadataprice.text = "Total amount =  " + cartData.PizzaPrice.toString()
+            cartDataLayoutBinding.Pizzadataquantity.text =
+                "Total Quantity =  " + cartData.PizzaQunatity.toString()
+            cartDataLayoutBinding.delete = listener
         }
     }
 }

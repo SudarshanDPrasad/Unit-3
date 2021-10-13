@@ -22,6 +22,13 @@ interface Dao {
     @Query("select * from Cart where PizzaName=:pizzaName and PizzaSize=:pizzaSize")
     fun getSelected(pizzaName : String, pizzaSize : String) : List<CartData>
 
+
+    @Query("select * from Cart where PizzaName=:pizzaName and PizzaSize=:pizzaSize")
+    fun getQuanity(pizzaName : String, pizzaSize : String) : List<CartData>
+
     @Delete()
     fun deleteTask(cartData: CartData)
+
+    @Insert()
+    fun addTask(cartData: CartData)
 }

@@ -23,9 +23,10 @@ class PizzaRepo(val dao: Dao) {
 
     fun insertData(cartData: CartData) {
         CoroutineScope(Dispatchers.IO).launch {
-            val listresponse = dao.getSelected(cartData.PizzaName, cartData.PizzaSize)
+            val listresponse = dao.getQuanity(cartData.PizzaName, cartData.PizzaSize)
             if (listresponse.size > 0) {
                 var olddata = listresponse.get(0)
+                olddata.PizzaQunatity = olddata.PizzaQunatity + 1
                 olddata.PizzaPrice = olddata.PizzaPrice + cartData.PizzaPrice
                 dao.UpdateData(olddata)
             } else {
@@ -36,5 +37,33 @@ class PizzaRepo(val dao: Dao) {
 
     fun getDataFormDB(): LiveData<List<CartData>> {
         return dao.getData()
+    }
+
+    fun Delete(cartData: CartData) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val quantityresponse = dao.getQuanity(cartData.PizzaName, cartData.PizzaSize)
+            if (quantityresponse.size > 0 && quantityresponse.get(0).PizzaQunatity > 1) {
+                var olddata = quantityresponse.get(0)
+                olddata.PizzaQunatity = olddata.PizzaQunatity - 1
+                olddata.PizzaPrice -= olddata.PizzaPrice / (olddata.PizzaQunatity + 1)
+                dao.UpdateData(olddata)
+            } else {
+                dao.deleteTask(cartData)
+            }
+        }
+    }
+
+    fun Add(cartData: CartData) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val quantityresponse = dao.getQuanity(cartData.PizzaName, cartData.PizzaSize)
+            if (quantityresponse.size > 0 && quantityresponse.get(0).PizzaQunatity > 1) {
+                var olddata = quantityresponse.get(0)
+                olddata.PizzaQunatity = olddata.PizzaQunatity + 1
+                olddata.PizzaPrice += olddata.PizzaPrice / (olddata.PizzaQunatity + 1)
+                dao.UpdateData(olddata)
+            } else {
+                dao.addTask(cartData)
+            }
+        }
     }
 }

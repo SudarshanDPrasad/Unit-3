@@ -2,4 +2,5 @@
 <resources>
     <dimen name="dimensions20dp">20dp</dimen>
     <dimen name="dimensions100dp">100dp</dimen>
+    <dimen name="dimension10dp">10dp</dimen>
 </resources>

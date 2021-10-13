@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <data>
+        <variable
+            name="delete"
+            type="com.example.pizzaandroid.onCLiclListener.OnDeleteListener" />
+
+<!--        <variable-->
+<!--            name="name"-->
+<!--            type="com.example.pizzaandroid.DataModel.CartData" />-->
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/image_pizza"
+            android:layout_width="@dimen/dimensions100dp"
+            android:layout_height="@dimen/dimensions100dp"
+            android:layout_margin="@dimen/dimensions20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/pizza" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/Pizzadataname"
+            android:text="sudarhsan"
+            android:layout_toRightOf="@id/image_pizza"
+            android:layout_marginLeft="@dimen/dimensions20dp"
+            android:layout_marginTop="@dimen/dimensions20dp"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/Pizzadatasize"
+            android:text="sudarshan"
+            android:layout_toRightOf="@id/image_pizza"
+            android:layout_below="@id/Pizzadataname"
+            android:layout_marginLeft="@dimen/dimensions20dp"
+            android:layout_marginTop="@dimen/dimension10dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/Pizzadataquantity"
+            android:layout_toRightOf="@id/image_pizza"
+            android:layout_below="@id/Pizzadatasize"
+            android:text="sudarshan"
+            android:layout_marginLeft="@dimen/dimensions20dp"
+            android:layout_marginTop="@dimen/dimension10dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/Pizzadataprice"
+            android:layout_toRightOf="@id/image_pizza"
+            android:layout_below="@id/Pizzadataquantity"
+            android:text="sudarshan"
+            android:layout_marginLeft="@dimen/dimensions20dp"
+            android:layout_marginTop="@dimen/dimension10dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/addextra"
+            android:layout_alignParentEnd="true"
+            android:text="ADD"
+            android:layout_marginEnd="@dimen/dimensions20dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/deleteitem"
+            android:layout_alignParentEnd="true"
+            android:text="@string/remove"
+            android:layout_below="@id/addextra"
+            android:layout_marginEnd="@dimen/dimensions20dp"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</layout>

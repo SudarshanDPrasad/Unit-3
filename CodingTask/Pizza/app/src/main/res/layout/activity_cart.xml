@@ -4,9 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.CartActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/datarecyclerview"
         android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/datarecyclerview"
+        android:text="sudarhsan"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/carttotalamount"
+        android:layout_height="wrap_content" />
+
+    </RelativeLayout>
 
 </layout>

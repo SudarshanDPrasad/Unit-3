@@ -56,15 +56,15 @@
                 android:layout_toRightOf="@id/Pizzaprice" />
 
             <Button
-                android:layout_width="wrap_content"
-                android:text="@string/add"
                 android:id="@+id/add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="@dimen/dimensions20dp"
-                android:visibility="visible"
                 android:layout_marginTop="@dimen/dimensions20dp"
+                android:layout_marginRight="@dimen/dimensions20dp"
                 android:onClick="@{()->click.onAddClick(size)}"
-                android:layout_height="wrap_content" />
+                android:text="@string/add"
+                android:visibility="visible" />
 
             <Button
                 android:layout_width="wrap_content"

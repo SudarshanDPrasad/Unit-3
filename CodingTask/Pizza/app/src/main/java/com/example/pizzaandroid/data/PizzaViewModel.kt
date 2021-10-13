@@ -33,11 +33,20 @@ class PizzaViewModel(val repo: PizzaRepo) : ViewModel() {
         }
     }
 
-    fun addToDb(cartData: CartData){
+    fun addToDb(cartData: CartData) {
         repo.insertData(cartData)
     }
 
-    fun getData() :LiveData<List<CartData>>{
+    fun getData(): LiveData<List<CartData>> {
         return repo.getDataFormDB()
+    }
+
+    fun deletetaskviewmodel(cartData: CartData) {
+        repo.Delete(cartData)
+    }
+
+
+    fun addtaskviewmodel(cartData: CartData) {
+        repo.Add(cartData)
     }
 }

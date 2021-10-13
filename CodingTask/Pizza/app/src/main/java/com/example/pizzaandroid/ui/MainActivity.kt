@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     lateinit var dao: Dao
     var count: Int = 0
     var sum: Int = 0
-    var newData = CartData("",0.0,"")
+    var newData = CartData("",0.0,"",1)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
