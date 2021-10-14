@@ -6,20 +6,47 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:id="@+id/datarecyclerview"
-        android:layout_height="wrap_content" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/datarecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/datarecyclerview"
-        android:text="sudarhsan"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/carttotalamount"
-        android:layout_height="wrap_content" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/checkoutcart"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dimensions20dp"
+            app:cardCornerRadius="@dimen/dimensions100dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/backgroundbox">
+
+                <TextView
+                    android:id="@+id/carttotalquantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimensions20dp"
+                    android:text="sudarshan" />
+
+                <TextView
+                    android:id="@+id/carttotalamount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/carttotalquantity"
+                    android:layout_marginTop="@dimen/dimensions20dp"
+                    android:layout_marginStart="@dimen/dimensions20dp"
+                    android:layout_marginEnd="@dimen/dimensions20dp"
+                    android:layout_marginBottom="@dimen/dimensions20dp"
+                    android:text="sudarshan" />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
     </RelativeLayout>
 

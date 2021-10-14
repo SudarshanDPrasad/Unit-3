@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     override fun onAddClick(size: Size) {
 
         count++
-        bottomSheetActivityBinding.quntaity.text = count.toString()
+        bottomSheetActivityBinding.quntaity.text = newData.PizzaQunatity.toString()
 
         sum += size.price.toInt()
 

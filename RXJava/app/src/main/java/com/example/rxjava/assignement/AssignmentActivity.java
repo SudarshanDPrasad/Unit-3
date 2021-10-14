@@ -35,6 +35,11 @@ public class AssignmentActivity extends AppCompatActivity {
 //        nameonjust();
 //        nameonfromarray();
 //        valuerange();
+        nameDisplayonfilter();
+
+    }
+
+    private void nameDisplayonfilter() {
 
         StudentModel studentModel = new StudentModel(0, "sudarshan");
 
@@ -43,7 +48,7 @@ public class AssignmentActivity extends AppCompatActivity {
                     @Override
                     public boolean test(StudentModel studentModel) throws Throwable {
                         SystemClock.sleep(1000);
-                        return studentModel.iscompleted();
+                        return studentModel.studentname.length()>6;
                     }
                 }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()); // this is to delay items and run in the background thred
 
@@ -57,6 +62,7 @@ public class AssignmentActivity extends AppCompatActivity {
             public void onNext(@NonNull StudentModel studentModel) {
 
                 if (studentModel.studentname.length() > 6) {
+                    Log.d("Sudarshan", studentModel.studentname);
                     String data = textView.getText().toString() + studentModel.studentname;
                     textView.setText(data + "\n");
                 }
@@ -103,7 +109,7 @@ public class AssignmentActivity extends AppCompatActivity {
 
             @Override
             public void onNext(@NonNull Integer integer) {
-
+                Log.d("Sudarshan", integer.toString());
                 String data = textView.getText().toString() + integer;
                 textView.setText(data + "\n");
             }
@@ -115,7 +121,7 @@ public class AssignmentActivity extends AppCompatActivity {
 
             @Override
             public void onComplete() {
-
+                Log.d("Sudarshan", "completed");
             }
         };
 
@@ -137,6 +143,7 @@ public class AssignmentActivity extends AppCompatActivity {
 
             @Override
             public void onNext(@NonNull String s) {
+                Log.d("Sudarshan", s);
                 String data = textView.getText().toString() + s;
                 textView.setText(data + "\n");
             }
@@ -148,7 +155,7 @@ public class AssignmentActivity extends AppCompatActivity {
 
             @Override
             public void onComplete() {
-
+                Log.d("Sudarshan", "completed");
             }
         };
         stringobservable.subscribe(stringobserver);
@@ -166,6 +173,7 @@ public class AssignmentActivity extends AppCompatActivity {
 
             @Override
             public void onNext(@NonNull String s) {
+                Log.d("Sudarshan", s);
                 textView.setText(s);
             }
 
@@ -176,6 +184,7 @@ public class AssignmentActivity extends AppCompatActivity {
 
             @Override
             public void onComplete() {
+                Log.d("Sudarshan", "Completed");
 
             }
         };

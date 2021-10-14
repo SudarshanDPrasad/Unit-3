@@ -2,6 +2,8 @@ package com.example.pizzaandroid.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,7 +13,6 @@ import com.example.pizzaandroid.adaptor.CartAdaptor
 import com.example.pizzaandroid.data.PizzaRepo
 import com.example.pizzaandroid.data.PizzaViewModel
 import com.example.pizzaandroid.databinding.ActivityCartBinding
-import com.example.pizzaandroid.databinding.ActivityMainBinding
 import com.example.pizzaandroid.localdatabase.Dao
 import com.example.pizzaandroid.localdatabase.PizzaRoomDataBase
 import com.example.pizzaandroid.localdatabase.PizzaViewModelFactory
@@ -53,18 +54,28 @@ class CartActivity : AppCompatActivity(), OnDeleteListener {
             cartList.addAll(it)
             cartAdapter.notifyDataSetChanged()
             var totalamount = 0
+            var totalquantity = 0
             it.forEach {
                 totalamount += it.PizzaPrice.toInt()
+                totalquantity += it.PizzaQunatity
             }
-            activityCartBinding.carttotalamount.text = totalamount.toString()
+
+            activityCartBinding.carttotalamount.text =
+                "the Total amount is =" + totalamount.toString()
+            activityCartBinding.carttotalquantity.text =
+                "The Total Quantity is ="+totalquantity.toString()
         })
+
+        activityCartBinding.checkoutcart.setOnClickListener {
+            Toast.makeText(this, "The check out is success", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onDelete(cartData: CartData) {
         pizzaViewModel.deletetaskviewmodel(cartData)
     }
 
-    override fun onAddExtra(cartData: CartData){
-        pizzaViewModel.addtaskviewmodel(cartData)
+    override fun onAddExtra(cartData: CartData) {
+        pizzaViewModel.addToDb(cartData)
     }
 }
