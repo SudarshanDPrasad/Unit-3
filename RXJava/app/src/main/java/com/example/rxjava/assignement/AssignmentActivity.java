@@ -15,9 +15,12 @@ import java.util.List;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.ObservableEmitter;
+import io.reactivex.rxjava3.core.ObservableOnSubscribe;
+import io.reactivex.rxjava3.core.ObservableSource;
 import io.reactivex.rxjava3.core.Observer;
-import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Function;
 import io.reactivex.rxjava3.functions.Predicate;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
@@ -35,8 +38,105 @@ public class AssignmentActivity extends AppCompatActivity {
 //        nameonjust();
 //        nameonfromarray();
 //        valuerange();
-        nameDisplayonfilter();
+//        nameDisplayonfilter();
+//        CreateDisplay();
 
+
+        StudentResponse studentResponse = new StudentResponse(1,getStudentslist());
+        Observable<Students> observable = Observable.just(studentResponse).flatMap(new Function<StudentResponse, ObservableSource<Students>>() {
+            @Override
+            public ObservableSource<Students> apply(StudentResponse studentResponse) throws Throwable {
+
+                List<Students> studentsList = studentResponse.getStudents();
+                return Observable.fromIterable(studentsList).subscribeOn(Schedulers.io());
+            }
+        }).filter(new Predicate<Students>() {
+            @Override
+            public boolean test(Students students) throws Throwable {
+                return students.getMarsks()>70;
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+
+        Observer<Students> observer = new Observer<Students>() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(@NonNull Students students) {
+
+                String data = textView.getText().toString() + students.getId();
+                textView.setText(data+"\n");
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+
+
+        observable.subscribe(observer);
+    }
+
+    private List<Students> getStudentslist(){
+        List<Students> studentsList = new ArrayList<>();
+
+        studentsList.add(new Students(12,120));
+        studentsList.add(new Students(13,125));
+        studentsList.add(new Students(15,60));
+        studentsList.add(new Students(16,69));
+        return studentsList;
+    }
+    private void CreateDisplay() {
+        Observable<StudentModel> observable = Observable.create(new ObservableOnSubscribe<StudentModel>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<StudentModel> emitter) throws Throwable {
+
+                StudentModel studentModel = new StudentModel(12,"sudarshan d prasad");
+                if(!emitter.isDisposed()){
+                    emitter.onNext(studentModel);
+                }
+            }
+        }).map(new Function<StudentModel, StudentModel>() {
+            @Override
+            public StudentModel apply(StudentModel studentModel) throws Throwable {
+                studentModel.setStudentage(27);
+                return studentModel;
+            }
+        });
+
+        Observer<StudentModel> observer = new Observer<StudentModel>() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(@NonNull StudentModel studentModel) {
+
+                String data = textView.getText().toString() + studentModel.studentage;
+                textView.setText(data);
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+
+        observable.subscribe(observer);
     }
 
     private void nameDisplayonfilter() {
