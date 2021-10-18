@@ -20,7 +20,6 @@ class PagingRepo(var personDao: PersonDao) {
 
         CoroutineScope(Dispatchers.IO).launch {
             val response = apiClient.getResponse(1)
-
         }
     }
 
