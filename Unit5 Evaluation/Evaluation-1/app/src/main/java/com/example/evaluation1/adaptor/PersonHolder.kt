@@ -12,7 +12,6 @@ class PersonHolder(
 
     fun setData(responseModelItem: ResponseModelItem) {
         itemLayoutBinding.details = responseModelItem
-
         try {
             Glide.with(itemLayoutBinding.imageView).load(responseModelItem.image.original)
                 .into(itemLayoutBinding.imageView)

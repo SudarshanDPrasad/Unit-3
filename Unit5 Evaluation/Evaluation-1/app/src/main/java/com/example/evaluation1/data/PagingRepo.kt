@@ -7,6 +7,9 @@ import com.example.evaluation1.api.ApiClient
 import com.example.evaluation1.api.Network
 import com.example.evaluation1.localdatabase.PersonDao
 import com.example.evaluation1.response.ResponseModelItem
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class PagingRepo(var personDao: PersonDao) {
 
@@ -15,6 +18,10 @@ class PagingRepo(var personDao: PersonDao) {
 
     fun getResponse() {
 
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = apiClient.getResponse(1)
+
+        }
     }
 
     fun saveToDB(response: ResponseModelItem) {

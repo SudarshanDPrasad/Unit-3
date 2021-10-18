@@ -32,7 +32,11 @@ class PersonAdaptor : PagingDataAdapter<ResponseModelItem, PersonHolder>(diffUti
     override fun onBindViewHolder(holder: PersonHolder, position: Int) {
         val result = getItem(position)
         result?.let {
-            holder.setData(it)
+            if(!(it.deathday == null && it.birthday == null )) {
+                holder.setData(it)
+            }else {
+
+            }
         }
     }
 
