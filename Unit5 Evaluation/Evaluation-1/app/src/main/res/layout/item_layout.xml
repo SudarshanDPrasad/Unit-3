@@ -34,7 +34,7 @@
                 android:layout_marginTop="@dimen/dimen20"
                 android:layout_toRightOf="@id/image_view"
                 android:layout_marginLeft="60dp"
-                android:text="@{countryname.name}"
+                android:text="@{details.country.name}"
                 android:layout_height="wrap_content" />
 
             <TextView
