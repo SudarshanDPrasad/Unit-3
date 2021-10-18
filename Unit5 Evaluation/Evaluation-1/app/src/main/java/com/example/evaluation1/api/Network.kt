@@ -1,6 +1,5 @@
-package com.example.evaluation1
+package com.example.evaluation1.api
 
-import com.example.evaluation1.api.ApiClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

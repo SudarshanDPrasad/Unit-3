@@ -1,8 +1,10 @@
-package com.example.evaluation1;
+package com.example.evaluation1.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.evaluation1.R;
 
 public class MainActivity extends AppCompatActivity {
 
