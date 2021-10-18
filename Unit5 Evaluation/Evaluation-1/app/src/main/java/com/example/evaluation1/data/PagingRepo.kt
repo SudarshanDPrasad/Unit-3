@@ -6,6 +6,7 @@ import androidx.paging.liveData
 import com.example.evaluation1.api.ApiClient
 import com.example.evaluation1.api.Network
 import com.example.evaluation1.localdatabase.PersonDao
+import com.example.evaluation1.response.ResponseModel
 import com.example.evaluation1.response.ResponseModelItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,16 +20,20 @@ class PagingRepo(var personDao: PersonDao) {
     fun getResponse() {
 
         CoroutineScope(Dispatchers.IO).launch {
-            val response = apiClient.getResponse(1)
+            val response = apiClient.getApiresponse()
+            saveToDB(response)
         }
     }
 
-    fun saveToDB(response: ResponseModelItem) {
+    fun saveToDB(response: ResponseModel?) {
         val listofPerson = ArrayList<PersonTable>()
-        response.let {
-
-            val person = PersonTable(it.country.toString(), it.birthday, it.deathday)
-            listofPerson.add(person)
+        response?.forEach {
+            if ((it?.birthday != null && it?.deathday != null)) {
+                val person = PersonTable(it.deathday, it.birthday)
+                listofPerson.add(person)
+            } else {
+                "null"
+            }
         }
         personDao.deleteAll()
         personDao.addTasks(listofPerson)

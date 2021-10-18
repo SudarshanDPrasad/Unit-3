@@ -8,5 +8,7 @@ class PagingViewModel(val repo: PagingRepo) : ViewModel() {
     fun getPages() =
         repo.getPageslIst()
 
+    fun getApi() =
+        repo.getResponse()
 
 }

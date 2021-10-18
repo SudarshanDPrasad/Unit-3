@@ -46,6 +46,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+
+        pagingViewModel.getApi()
     }
 
     private fun setAdaptor() {

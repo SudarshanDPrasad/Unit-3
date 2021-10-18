@@ -7,7 +7,7 @@ import com.example.evaluation1.data.PersonTable
 interface PersonDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertData(personTable: PersonTable)
+    fun insertData(personTable: ArrayList<PersonTable>)
 
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
