@@ -12,6 +12,7 @@ class PersonHolder(
     fun setData(responseModelItem: ResponseModelItem){
         itemLayoutBinding.details = responseModelItem
 //        itemLayoutBinding.tvCountry.text = responseModelItem.country.name
+    if(!responseModelItem.image.medium.isEmpty())
         Glide.with(itemLayoutBinding.imageView).load(responseModelItem.image.medium).into(itemLayoutBinding.imageView)
     }
 }

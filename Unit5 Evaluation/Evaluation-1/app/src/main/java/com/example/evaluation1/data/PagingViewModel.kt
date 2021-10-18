@@ -7,4 +7,6 @@ class PagingViewModel(val repo: PagingRepo) : ViewModel() {
 
     fun getPages() =
         repo.getPageslIst()
+
+
 }
