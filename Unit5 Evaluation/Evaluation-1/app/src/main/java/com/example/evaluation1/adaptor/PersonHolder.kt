@@ -13,10 +13,6 @@ class PersonHolder(
     fun setData(responseModelItem: ResponseModelItem) {
         itemLayoutBinding.details = responseModelItem
 
-        if(responseModelItem.birthday==null || responseModelItem.deathday ==null){
-            itemLayoutBinding.card.visibility = View.INVISIBLE
-        }
-
         try {
             Glide.with(itemLayoutBinding.imageView).load(responseModelItem.image.original)
                 .into(itemLayoutBinding.imageView)
