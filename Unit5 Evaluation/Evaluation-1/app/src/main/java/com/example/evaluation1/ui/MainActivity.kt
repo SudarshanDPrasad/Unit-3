@@ -7,8 +7,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.evaluation1.R
 import com.example.evaluation1.adaptor.PersonAdaptor
+import com.example.evaluation1.data.PagingRepo
 import com.example.evaluation1.data.PagingViewModel
 import com.example.evaluation1.databinding.ActivityMainBinding
+import com.example.evaluation1.localdatabase.PersonDao
+import com.example.evaluation1.localdatabase.PersonDatabase
+import com.example.evaluation1.localdatabase.PersonViewModelFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,6 +22,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var pagingViewModel: PagingViewModel
     private lateinit var personAdaptor: PersonAdaptor
     private lateinit var mainBinding: ActivityMainBinding
+    private lateinit var personDatabase: PersonDatabase
+    lateinit var dao: PersonDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +31,12 @@ class MainActivity : AppCompatActivity() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
-        pagingViewModel = ViewModelProvider(this).get(PagingViewModel::class.java)
+        personDatabase = PersonDatabase.getDataBaseObject(this)
+        dao = personDatabase.getTaskDAO()
+        val repo = PagingRepo(dao)
+        val viewmodelfactory = PersonViewModelFactory(repo)
+
+        pagingViewModel = ViewModelProvider(this,viewmodelfactory).get(PagingViewModel::class.java)
         setAdaptor()
 
         pagingViewModel.getPages().observe(this,{

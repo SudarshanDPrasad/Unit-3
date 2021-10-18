@@ -1,6 +1,7 @@
 package com.example.evaluation1.response
 
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
 data class ResponseModelItem(

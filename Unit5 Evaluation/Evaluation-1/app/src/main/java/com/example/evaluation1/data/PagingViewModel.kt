@@ -2,9 +2,8 @@ package com.example.evaluation1.data
 
 import androidx.lifecycle.ViewModel
 
-class PagingViewModel : ViewModel() {
+class PagingViewModel(val repo: PagingRepo) : ViewModel() {
 
-    private val repo = PagingRepo()
 
     fun getPages() =
         repo.getPageslIst()

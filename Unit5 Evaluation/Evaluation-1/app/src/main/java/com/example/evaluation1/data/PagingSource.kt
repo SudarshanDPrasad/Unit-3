@@ -11,12 +11,13 @@ class PagingSource : PagingSource<Int, ResponseModelItem>() {
     private val apiservice = Network.getApiService()
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ResponseModelItem> {
-
-        val pageNumber = params.key ?: 1
-        val responseModel: ResponseModel = apiservice.getResponse(pageNumber)
-        val result: ArrayList<ResponseModelItem> = responseModel
-
         return try {
+
+            val pageNumber = params.key ?: 1
+            val responseModel: ResponseModel = apiservice.getResponse(pageNumber)
+            val result: ArrayList<ResponseModelItem> = responseModel
+
+
             LoadResult.Page(
                 data = result,
                 prevKey = null,
