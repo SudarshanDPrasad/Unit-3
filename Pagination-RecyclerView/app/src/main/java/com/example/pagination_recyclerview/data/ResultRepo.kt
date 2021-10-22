@@ -2,7 +2,6 @@ package com.example.pagination_recyclerview.data
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import androidx.paging.PagingConfig.Companion.MAX_SIZE_UNBOUNDED
 import androidx.paging.liveData
 
 class ResultRepo {

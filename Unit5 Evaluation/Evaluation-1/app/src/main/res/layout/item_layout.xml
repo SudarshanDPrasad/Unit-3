@@ -25,16 +25,26 @@
 
 
             <ImageView
-                android:layout_width="@dimen/dimen120"
+                android:layout_width="match_parent"
                 android:id="@+id/image_view"
                 android:layout_height="@dimen/dimen150" />
 
             <TextView
                 android:layout_width="wrap_content"
+                android:text="country name : "
+                android:id="@+id/ccname"
+                android:layout_marginTop="@dimen/dimen20"
+                android:layout_below="@id/image_view"
+                android:layout_marginLeft="60dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:id="@+id/tv_country"
                 android:layout_marginTop="@dimen/dimen20"
-                android:layout_toRightOf="@id/image_view"
-                android:layout_marginLeft="60dp"
+                android:layout_toRightOf="@id/ccname"
+                android:layout_below="@id/image_view"
+                android:layout_marginLeft="10dp"
                 android:text="@{details.country.name}"
                 android:layout_height="wrap_content" />
 
@@ -42,7 +52,6 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/tv_dateofbirth"
                 android:layout_marginTop="@dimen/dimen20"
-                android:layout_toRightOf="@id/image_view"
                 android:layout_marginLeft="60dp"
                 android:layout_below="@id/tv_country"
                 android:text="@{details.birthday}"
@@ -52,10 +61,10 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/tv_deathdate"
                 android:layout_marginTop="@dimen/dimen20"
-                android:layout_toRightOf="@id/image_view"
                 android:layout_marginLeft="60dp"
+                android:layout_below="@id/tv_country"
                 android:text="@{details.deathday}"
-                android:layout_below="@id/tv_dateofbirth"
+                android:layout_toRightOf="@id/tv_dateofbirth"
                 android:layout_height="wrap_content" />
 
         </RelativeLayout>

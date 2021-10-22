@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="data"
+            type="com.example.pagination_recyclerview.response.Result" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="20dp"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:id="@+id/imageview"
+        android:layout_height="120dp"  />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/tvpopularity"
+            android:layout_below="@id/imageview"
+            android:layout_marginTop="20dp"
+            android:text="@{data.title}"
+            android:layout_marginLeft="20dp"
+            android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    </layout>

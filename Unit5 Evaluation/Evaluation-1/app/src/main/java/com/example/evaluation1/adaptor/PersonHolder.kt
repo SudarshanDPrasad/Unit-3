@@ -18,5 +18,11 @@ class PersonHolder(
         } catch (expection:Exception){
 
         }
+
+        if(responseModelItem.deathday!=null){
+            itemLayoutBinding.card.visibility = View.VISIBLE
+        }else {
+            itemLayoutBinding.card.visibility = View.GONE
+        }
     }
 }

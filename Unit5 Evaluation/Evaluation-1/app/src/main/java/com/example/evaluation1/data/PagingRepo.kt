@@ -20,8 +20,10 @@ class PagingRepo(var personDao: PersonDao) {
     fun getResponse() {
 
         CoroutineScope(Dispatchers.IO).launch {
-            val response = apiClient.getApiresponse()
-            saveToDB(response)
+            for (i in 0 until 328) {
+                val response = apiClient.getResponse(i)
+                saveToDB(response)
+            }
         }
     }
 
