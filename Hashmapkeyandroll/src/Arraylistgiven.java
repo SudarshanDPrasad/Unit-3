@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Arraylistgiven {
     public static void main(String[] args) {
@@ -22,7 +23,7 @@ public class Arraylistgiven {
     private static void printindex3(ArrayList<String> arrayList) {
         arrayList.set(3, "Masai");
 
-        for(String i : arrayList){
+        for (String i : arrayList) {
             System.out.println(i);
         }
     }
@@ -36,11 +37,27 @@ public class Arraylistgiven {
     }
 
     private static void printgreater5(ArrayList<String> arrayList) {
-        for (String i : arrayList) {
-            if (i.length() > 5) {
-                System.out.println(i);
+        try {
+            Iterator<String> it = arrayList.iterator();
+            while (it.hasNext()) {
+                String name = it.next();
+                if (name.length() < 5)
+                    arrayList.remove(name);
+
+
+                while (it.hasNext()){
+                    System.out.println(it.next());
+                }
             }
+        } catch (Exception e) {
+
         }
+
+//        for (String i : arrayList) {
+//            if (i.length() > 5) {
+//                System.out.println(i);
+//            }
+//        }
     }
 
     private static void printall(ArrayList<String> arrayList) {
