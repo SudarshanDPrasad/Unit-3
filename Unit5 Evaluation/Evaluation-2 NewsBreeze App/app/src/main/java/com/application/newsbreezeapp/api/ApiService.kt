@@ -1,7 +1,7 @@
 package com.application.newsbreezeapp.api
 
-import android.database.Observable
 import com.application.newsbreezeapp.ApiCall.ResponseModel
+import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 
 interface ApiService {
