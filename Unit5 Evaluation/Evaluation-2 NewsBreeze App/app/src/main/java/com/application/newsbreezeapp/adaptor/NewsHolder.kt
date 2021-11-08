@@ -14,6 +14,7 @@ class NewsHolder(
         itemLayoutBinding.itemClickListener = onCardClicked
         itemLayoutBinding.article = article
 
+
         Glide.with(itemLayoutBinding.imageview).load(article.urlToImage).into(itemLayoutBinding.imageview)
     }
 }

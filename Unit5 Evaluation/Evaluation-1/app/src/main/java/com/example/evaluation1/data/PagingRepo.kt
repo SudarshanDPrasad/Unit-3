@@ -37,7 +37,6 @@ class PagingRepo(var personDao: PersonDao) {
                 "null"
             }
         }
-        personDao.deleteAll()
         personDao.addTasks(listofPerson)
     }
 

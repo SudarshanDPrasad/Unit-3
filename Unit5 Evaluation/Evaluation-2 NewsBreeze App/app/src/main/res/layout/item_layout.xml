@@ -36,6 +36,7 @@
                 android:layout_below="@id/shortdescription"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="20dp"
+                android:onClick="@{()->itemClickListener.onCardClicked(article)}"
                 android:layout_height="wrap_content" />
 
 
