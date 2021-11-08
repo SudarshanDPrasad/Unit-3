@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+   >
+
+    <data>
+        <variable
+            name="News"
+            type="com.application.newsbreezeapp.ApiCall.Article" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -23,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imageview"
                 android:layout_margin="20dp"
-                android:text="tittle" />
+                android:text="@{News.title}" />
 
             <TextView
                 android:id="@+id/date"
@@ -32,7 +42,7 @@
                 android:layout_below="@id/imageview"
                 android:layout_alignParentEnd="true"
                 android:layout_margin="20dp"
-                android:text="2021-11-08T08:11:18Z" />
+                android:text="@{News.publishedAt}" />
 
             <TextView
                 android:id="@+id/shortdescription"
@@ -40,7 +50,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/title"
                 android:layout_margin="20dp"
-                android:text="Beaming clean power back to Earth could be a game-changer." />
+                android:text="@{News.description}" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
-</RelativeLayout>
+    </RelativeLayout>
+</layout>
