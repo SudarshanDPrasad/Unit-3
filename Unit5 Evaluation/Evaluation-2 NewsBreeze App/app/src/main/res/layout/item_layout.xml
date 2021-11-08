@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-   >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
-            name="News"
-            type="com.application.newsbreezeapp.ApiCall.Article" />
+            name="article"
+            type="com.application.newsbreezeapp.apicall.remote.Article" />
+
     </data>
 
     <RelativeLayout
@@ -25,24 +26,24 @@
                 android:id="@+id/imageview"
                 android:layout_width="match_parent"
                 android:layout_margin="20dp"
-                android:layout_height="120dp" />
+                android:scaleType="fitXY"
+                android:layout_height="140dp" />
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imageview"
+                android:layout_below="@id/date"
                 android:layout_margin="20dp"
-                android:text="@{News.title}" />
+                android:text="@{article.title}" />
 
             <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imageview"
-                android:layout_alignParentEnd="true"
                 android:layout_margin="20dp"
-                android:text="@{News.publishedAt}" />
+                android:text="@{article.publishedAt}" />
 
             <TextView
                 android:id="@+id/shortdescription"
@@ -50,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/title"
                 android:layout_margin="20dp"
-                android:text="@{News.description}" />
+                android:text="@{article.description}" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
     </RelativeLayout>

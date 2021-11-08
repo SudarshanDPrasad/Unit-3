@@ -1,11 +1,11 @@
-package com.application.newsbreezeapp.ApiCall
+package com.application.newsbreezeapp.apicall.remote
 
 
 import com.google.gson.annotations.SerializedName
 
 data class Source(
     @SerializedName("id")
-    val id: String,
+    val id: Any,
     @SerializedName("name")
     val name: String
 )
