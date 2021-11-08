@@ -10,13 +10,14 @@ import com.application.newsbreezeapp.databinding.ItemLayoutBinding
 
 class NewsAdaptor(
     val articlelist: List<Article>,
+    private val itemClickListener: OnCardClicked
 ) : RecyclerView.Adapter<NewsHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsHolder {
         val itemLayoutBinding: ItemLayoutBinding =
             DataBindingUtil.inflate(LayoutInflater.from(parent.context),
                 R.layout.item_layout, parent, false)
 
-        return NewsHolder(itemLayoutBinding)
+        return NewsHolder(itemLayoutBinding,itemClickListener)
     }
 
     override fun onBindViewHolder(holder: NewsHolder, position: Int) {

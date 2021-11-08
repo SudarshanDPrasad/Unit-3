@@ -7,6 +7,10 @@
             name="article"
             type="com.application.newsbreezeapp.apicall.remote.Article" />
 
+        <variable
+            name="itemClickListener"
+            type="com.application.newsbreezeapp.adaptor.OnCardClicked" />
+
     </data>
 
     <RelativeLayout
@@ -16,12 +20,22 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
+        app:cardCornerRadius="20dp"
+        android:onClick="@{()->itemClickListener.onCardClicked(article)}"
         android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
+
+            <Button
+                android:layout_width="wrap_content"
+                android:text="save to read later"
+                android:layout_below="@id/shortdescription"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="20dp"
+                android:layout_height="wrap_content" />
             <ImageView
                 android:id="@+id/imageview"
                 android:layout_width="match_parent"
