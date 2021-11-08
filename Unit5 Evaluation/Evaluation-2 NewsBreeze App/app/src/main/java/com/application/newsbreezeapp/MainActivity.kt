@@ -12,7 +12,11 @@ import com.application.newsbreezeapp.adaptor.OnCardClicked
 import com.application.newsbreezeapp.apicall.remote.Article
 import com.application.newsbreezeapp.viewmodel.MainUiModel
 import com.application.newsbreezeapp.viewmodel.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_layout.*
+
+
 
 class MainActivity : AppCompatActivity() , OnCardClicked{
     private lateinit var mainViewModel: MainViewModel
@@ -36,6 +40,7 @@ class MainActivity : AppCompatActivity() , OnCardClicked{
                 }
             }
         })
+
     }
 
     private fun setRecyclerAdaptor() {
