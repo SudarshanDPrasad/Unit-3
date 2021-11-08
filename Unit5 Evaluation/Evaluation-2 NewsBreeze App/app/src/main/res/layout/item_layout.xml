@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageview"
+                android:layout_width="match_parent"
+                android:layout_margin="20dp"
+                android:layout_height="120dp" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageview"
+                android:layout_margin="20dp"
+                android:text="tittle" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageview"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="20dp"
+                android:text="2021-11-08T08:11:18Z" />
+
+            <TextView
+                android:id="@+id/shortdescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_margin="20dp"
+                android:text="Beaming clean power back to Earth could be a game-changer." />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

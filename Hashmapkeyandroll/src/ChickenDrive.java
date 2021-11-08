@@ -1,4 +1,4 @@
-public class ChickenDrive {
+public class    ChickenDrive {
     public static void main(String[] args) {
         KFC kfc = new KFC(102);
         kfc.friedChickenRecipe();
