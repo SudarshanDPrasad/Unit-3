@@ -1,9 +1,9 @@
-package com.application.newsbreezeapp.ApiCall
+package com.application.newsbreezeapp.apicall.remote
 
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseModel(
+data class ResponseDTOX(
     @SerializedName("articles")
     val articles: List<Article>,
     @SerializedName("status")

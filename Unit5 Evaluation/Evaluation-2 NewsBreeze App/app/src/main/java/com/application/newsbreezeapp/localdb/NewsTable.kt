@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "News Feed")
-class RoomDataBase(
+class NewsTable(
     @ColumnInfo(name = "Date") var date: String,
     @ColumnInfo(name = "Title") var title: String,
 ) {

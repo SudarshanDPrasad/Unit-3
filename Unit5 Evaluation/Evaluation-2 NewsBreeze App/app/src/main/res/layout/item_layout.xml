@@ -11,6 +11,11 @@
             name="itemClickListener"
             type="com.application.newsbreezeapp.adaptor.OnCardClicked" />
 
+        <variable
+            name="saveclicklistener"
+            type="com.application.newsbreezeapp.adaptor.OnSaveClick" />
+
+
     </data>
 
     <RelativeLayout
@@ -36,7 +41,7 @@
                 android:layout_below="@id/shortdescription"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="20dp"
-                android:onClick="@{()->itemClickListener.onCardClicked(article)}"
+                android:onClick="@{()->saveclicklistener.onSaveClick(article)}"
                 android:layout_height="wrap_content" />
 
 
