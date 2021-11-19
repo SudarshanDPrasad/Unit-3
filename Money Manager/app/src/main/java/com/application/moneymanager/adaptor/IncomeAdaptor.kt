@@ -7,10 +7,17 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.view.menu.ActionMenuItemView
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.application.moneymanager.R
+import com.application.moneymanager.SwipeToDeleteCallBack
 import com.application.moneymanager.clickOnListener
+import com.application.moneymanager.data.IncomeDao
 import com.application.moneymanager.data.IncomeTable
+import kotlinx.android.synthetic.main.fragment_income.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.w3c.dom.Text
 
 class IncomeAdaptor(
@@ -27,9 +34,12 @@ class IncomeAdaptor(
 
     override fun onBindViewHolder(holder: IncomeHolder, position: Int) {
         val income = incomelist[position]
+        val incomeDao : IncomeDao
+
         holder.incomeDescription.text = income.Description
         holder.incomeAmount.text = income.Amount.toString()
         holder.dateandtime.text = income.Dateandtime
+
         holder.incomeedit.setOnClickListener {
             listener.onedit(income)
         }

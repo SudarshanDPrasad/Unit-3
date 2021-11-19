@@ -17,8 +17,11 @@ import android.widget.DatePicker
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.application.moneymanager.R
+import com.application.moneymanager.SwipeToDeleteCallBack
 import com.application.moneymanager.adaptor.IncomeAdaptor
 import com.application.moneymanager.clickOnListener
 import com.application.moneymanager.data.*
@@ -41,7 +44,8 @@ class Income : Fragment(R.layout.fragment_income), clickOnListener {
     lateinit var viewModel: IncomeViewModel
     lateinit var incomeAdaptor: IncomeAdaptor
     var incomelist = mutableListOf<IncomeTable>()
-    var total: Int = 0;
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -66,9 +70,9 @@ class Income : Fragment(R.layout.fragment_income), clickOnListener {
                 val desc = mDialog.etincomedesc.text
                 val money = mDialog.etincomeamount.text
 
-                    val save = IncomeTable(desc.toString(), money.toString().toInt(), currentdate)
-                    viewModel.addIncome(save)
-                    mAlertDialog.dismiss()
+                val save = IncomeTable(desc.toString(), money.toString().toInt(), currentdate)
+                viewModel.addIncome(save)
+                mAlertDialog.dismiss()
 
             }
         }
@@ -94,9 +98,8 @@ class Income : Fragment(R.layout.fragment_income), clickOnListener {
 
                 editor?.putInt("valueprogress", it)
                 editor?.apply()
-            }
+            }   
         })
-
     }
 
     override fun onedit(incomeTable: IncomeTable) {
@@ -109,13 +112,27 @@ class Income : Fragment(R.layout.fragment_income), clickOnListener {
                 incomeTable.Amount = eteditamount.text.toString().toInt()
                 incomeDao.updateincome(incomeTable)
             }
-            linearupdate.visibility =View.GONE
+            linearupdate.visibility = View.GONE
         }
     }
 
     override fun ondelete(incomeTable: IncomeTable) {
+
         CoroutineScope(Dispatchers.IO).launch {
             incomeDao.deleteIncome(incomeTable)
         }
+
+
+        // swipe to delete
+
+//        val swipeToDeleteCallBack = object : SwipeToDeleteCallBack(){
+//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+//                CoroutineScope(Dispatchers.IO).launch {
+//                    incomeDao.deleteIncome(incomeTable)
+//                }
+//            }
+//        }
+//        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallBack)
+//        itemTouchHelper.attachToRecyclerView(incomerecyclerview)
     }
 }
