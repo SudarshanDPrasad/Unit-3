@@ -66,9 +66,10 @@ class Income : Fragment(R.layout.fragment_income), clickOnListener {
                 val desc = mDialog.etincomedesc.text
                 val money = mDialog.etincomeamount.text
 
-                val save = IncomeTable(desc.toString(), money.toString().toInt(),currentdate)
-                viewModel.addIncome(save)
-                mAlertDialog.dismiss()
+                    val save = IncomeTable(desc.toString(), money.toString().toInt(), currentdate)
+                    viewModel.addIncome(save)
+                    mAlertDialog.dismiss()
+
             }
         }
 

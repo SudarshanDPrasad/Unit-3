@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="20dp"
-            android:id="@+id/etincomedesc"
+            android:id="@+id/etexpensedesc"
             android:paddingLeft="20dp"
             android:hint="Enter the Description for income "
             android:background="@drawable/acceptrectangle"
@@ -23,15 +23,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/etincomeamount"
+            android:id="@+id/etexpensesamount"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="20dp"
+            android:inputType="number"
             android:background="@drawable/acceptrectangle"
             android:hint="Enter the Amount for income "
             android:paddingLeft="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etincomedesc" />
+            app:layout_constraintTop_toBottomOf="@+id/etexpensedesc" />
 
 
         <TextView
@@ -42,7 +43,7 @@
             android:layout_marginTop="20dp"
             android:text="The date and time to set the \n income "
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etincomeamount" />
+            app:layout_constraintTop_toBottomOf="@+id/etexpensesamount" />
 
         <TextView
             android:id="@+id/tvincomedate"
@@ -54,7 +55,7 @@
             android:paddingLeft="30dp"
             android:paddingTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etincomeamount"
+            app:layout_constraintTop_toBottomOf="@+id/etexpensesamount"
             tools:text="@tools:sample/date/ddmmyy" />
 
         <Button

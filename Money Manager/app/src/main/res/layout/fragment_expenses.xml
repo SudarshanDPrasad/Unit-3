@@ -68,6 +68,7 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:gravity="top|start"
+                android:inputType="number"
                 android:hint="Enter Amount"
                 android:maxLength="500"
                 android:minHeight="48dp"

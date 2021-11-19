@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.application.moneymanager.R
@@ -18,10 +19,15 @@ import com.application.moneymanager.adaptor.IncomeAdaptor
 import com.application.moneymanager.clickondelete
 import com.application.moneymanager.data.*
 import com.application.moneymanager.dataexpenses.*
+import kotlinx.android.synthetic.main.expensesdialgoue.*
+import kotlinx.android.synthetic.main.expensesdialgoue.view.*
 import kotlinx.android.synthetic.main.fragment_expenses.*
 import kotlinx.android.synthetic.main.fragment_income.*
 import kotlinx.android.synthetic.main.fragment_income.incomerecyclerview
 import kotlinx.android.synthetic.main.incomedialgouelayout.view.*
+import kotlinx.android.synthetic.main.incomedialgouelayout.view.btnincomesave
+import kotlinx.android.synthetic.main.incomedialgouelayout.view.etincomeamount
+import kotlinx.android.synthetic.main.incomedialgouelayout.view.tvincomedate
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -57,27 +63,18 @@ class Expenses : Fragment(R.layout.fragment_expenses), clickondelete {
             val currentdate = DateFormat.getDateInstance().format(cal.time)
             mDialog.tvincomedate.setText(currentdate)
             mDialog.btnincomesave.setOnClickListener {
-                val desc = mDialog.etincomedesc.text
-                val money = mDialog.etincomeamount.text
+                val desc = mDialog.etexpensedesc.text
+                val money = mDialog.etexpensesamount.text
 
-                val save = ExpensesTable(desc.toString(), money.toString().toInt(),currentdate)
-                viewModel.addExpenses(save)
-                expensesDao.getAllExpenses().observe(requireActivity(), {
-                    if (it != null) {
-                        val sharedPreferencesprogresexpenses: SharedPreferences? =
-                            context?.getSharedPreferences("Expenses", Context.MODE_PRIVATE)
-                        val editor = sharedPreferencesprogresexpenses?.edit()
+                    val save = ExpensesTable(desc.toString(), money.toString().toInt(), currentdate)
+                    viewModel.addExpenses(save)
+                    mAlertDialog.dismiss()
 
-                        editor?.putInt("valuexpenses", it)
-                        editor?.apply()
-                    }
-                })
-                mAlertDialog.dismiss()
             }
         }
 
 
-        incomeAdaptor = EpensesAdaptor(requireContext(), expenseslist,this)
+        incomeAdaptor = EpensesAdaptor(requireContext(), expenseslist, this)
         expensesrecycleview.adapter = incomeAdaptor
         expensesrecycleview.layoutManager = LinearLayoutManager(requireContext())
 
@@ -88,7 +85,16 @@ class Expenses : Fragment(R.layout.fragment_expenses), clickondelete {
                 incomeAdaptor.notifyDataSetChanged()
             }
         })
+        expensesDao.getAllExpenses().observe(requireActivity(), {
+            if (it != null) {
+                val sharedPreferencesprogresexpenses: SharedPreferences? =
+                    context?.getSharedPreferences("Expenses", Context.MODE_PRIVATE)
+                val editor = sharedPreferencesprogresexpenses?.edit()
 
+                editor?.putInt("valuexpenses", it)
+                editor?.apply()
+            }
+        })
     }
 
     override fun onedit(expensesTable: ExpensesTable) {
@@ -101,7 +107,7 @@ class Expenses : Fragment(R.layout.fragment_expenses), clickondelete {
                 expensesTable.Amount = eteditamountexpenes.text.toString().toInt()
                 expensesDao.updateexpenses(expensesTable)
             }
-            linearexpenes.visibility =View.GONE
+            linearexpenes.visibility = View.GONE
         }
     }
 
