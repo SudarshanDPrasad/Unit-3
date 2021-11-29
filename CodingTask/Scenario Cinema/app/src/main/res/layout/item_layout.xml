@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data >
+        <variable
+            name="MoviesItem"
+            type="com.application.scenariocinema.responseonemore.Result" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/Iv_Background_Image"
+                android:layout_width="match_parent"
+                android:scaleType="fitCenter"
+                android:layout_height="120dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/dummy2"
+                android:text="Title :"
+                android:layout_below="@id/Iv_Background_Image"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/Tv_Tittle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Iv_Background_Image"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/dummy2"
+                android:text="@{MoviesItem.title}"/>
+
+            <TextView
+                android:id="@+id/dummy1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Tv_Tittle"
+                android:layout_marginLeft="20dp"
+                android:text="popularity :" />
+
+            <TextView
+                android:id="@+id/Tv_Popularity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Tv_Tittle"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/dummy1"
+                android:text="@{Double.toString(MoviesItem.popularity)}" />
+
+
+            <TextView
+                android:id="@+id/dummy3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Tv_Popularity"
+                android:layout_marginLeft="20dp"
+                android:text="Movie Date: " />
+
+            <TextView
+                android:id="@+id/Tv_ReleaseDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Tv_Popularity"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/dummy1"
+                android:text="@{MoviesItem.releaseDate}" />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</layout>

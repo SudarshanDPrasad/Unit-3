@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 class MainViewModel : ViewModel() {
 
-    private val mainRepository = MainRepository()
+        private val mainRepository = MainRepository()
     private val mutableLiveData = MutableLiveData<MainUiModel>()
     val liveData: LiveData<MainUiModel> = mutableLiveData
     private lateinit var disposable: Disposable

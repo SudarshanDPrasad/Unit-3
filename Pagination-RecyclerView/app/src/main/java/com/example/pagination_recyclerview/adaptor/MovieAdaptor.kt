@@ -9,7 +9,7 @@ import com.example.pagination_recyclerview.R
 import com.example.pagination_recyclerview.response.Result
 import com.example.pagination_recyclerview.databinding.ItemLayoutBinding
 
-class MovieAdaptor : PagingDataAdapter<Result, MovieHolder>(diffUtil) {
+    class MovieAdaptor : PagingDataAdapter<Result, MovieHolder>(diffUtil) {
 
     companion object {
         val diffUtil = object : DiffUtil.ItemCallback<Result>() {
