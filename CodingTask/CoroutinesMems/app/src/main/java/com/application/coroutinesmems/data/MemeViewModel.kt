@@ -18,7 +18,7 @@ class MemeViewModel : ViewModel() {
             val data = repo.getALLData()
             if (data != null) {
                 mutableLiveData.postValue(MainUIMode.OnSucces(data))
-            }else {
+            } else {
                 mutableLiveData.postValue(MainUIMode.OnFailure("Error"))
             }
         }
