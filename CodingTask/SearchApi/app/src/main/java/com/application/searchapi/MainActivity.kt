@@ -20,7 +20,7 @@ import com.application.searchapi.databinding.ActivityMainBinding
 import com.application.searchapi.response.Address
 import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var cityViewModel: CityViewModel

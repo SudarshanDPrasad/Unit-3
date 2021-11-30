@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
+@HiltViewModel
 class CityViewModel @Inject constructor() : ViewModel() {
 
     private val cityRepo = CityRepo()
@@ -24,7 +25,7 @@ class CityViewModel @Inject constructor() : ViewModel() {
 //    LiveData<Resource<com.application.searchapi.response.Data>>
 
 
-    fun getData(query: String) : LiveData<Resource<com.application.searchapi.response.ResponseDTO>>{
+    fun getData(query: String) : LiveData<Resource<ResponseDTO>>{
 
 //        CoroutineScope(Dispatchers.IO).launch {
 //            val repo = cityRepo.getAllCities(query)

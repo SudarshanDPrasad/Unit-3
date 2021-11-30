@@ -14,9 +14,9 @@ class CityRepo() {
 //        return ServiceGenerator.getApiService().getCityName("airtel",query)
 //    }
 
-    suspend fun getAllCities(query:String): Resource<com.application.searchapi.response.ResponseDTO> {
+    suspend fun getAllCities(query:String): Resource<ResponseDTO> {
         return try {
-            val response : com.application.searchapi.response.ResponseDTO = ServiceGenerator.getApiService().getCityName("airtel",query)
+            val response : ResponseDTO = ServiceGenerator.getApiService().getCityName("airtel",query)
 
             responseModel.handleSuccess(response)
         }catch (e : Exception){
