@@ -17,15 +17,15 @@ class PagingRepo(var personDao: PersonDao) {
 
     private var apiClient: ApiClient = Network.getApiService()
 
-    fun getResponse() {
+        fun getResponse() {
 
-        CoroutineScope(Dispatchers.IO).launch {
-            for (i in 0 until 328) {
-                val response = apiClient.getResponse(i)
-                saveToDB(response)
+            CoroutineScope(Dispatchers.IO).launch {
+                for (i in 0 until 328) {
+                    val response = apiClient.getResponse(i)
+                    saveToDB(response)
+                }
             }
         }
-    }
 
     fun saveToDB(response: ResponseModel?) {
         val listofPerson = ArrayList<PersonTable>()

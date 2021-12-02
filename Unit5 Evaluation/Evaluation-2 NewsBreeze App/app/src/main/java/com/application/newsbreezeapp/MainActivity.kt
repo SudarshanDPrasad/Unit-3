@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity(), OnCardClicked, OnSaveClick {
     private lateinit var mainViewModel: MainViewModel
     private var list = emptyList<Article>()
-    lateinit var roomDataBase: NewsRoomDat aBase
+    lateinit var roomDataBase: NewsRoomDataBase
     lateinit var newsDao: NewsDao
 
     override fun onCreate(savedInstanceState: Bundle?) {

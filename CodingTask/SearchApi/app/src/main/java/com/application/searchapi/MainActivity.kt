@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
@@ -15,9 +16,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.application.searchapi.adaptor.CityAdaptor
 import com.application.searchapi.data.CityViewModel
 import com.application.searchapi.data.MainUiModel
+import com.application.searchapi.data.Resource
 import com.application.searchapi.data.Status
 import com.application.searchapi.databinding.ActivityMainBinding
 import com.application.searchapi.response.Address
+import com.application.searchapi.response.ResponseDTO
+import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,24 +40,28 @@ class MainActivity : AppCompatActivity() {
 
 
         cityViewModel = ViewModelProviders.of(this).get(CityViewModel::class.java)
-        searchedittext()
-    }
-
-    private fun searchedittext() {
-        activityMainBinding.etSearchCity.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                loadapi(p0.toString())
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-            }
-
-        })
+//        searchedittext()
+        activityMainBinding.floatingSearchView.setOnQueryChangeListener { oldQuery, newQuery ->
+            loadapi(newQuery)
+        }
 
     }
+
+//    private fun searchedittext() {
+//        activityMainBinding.etSearchCity.addTextChangedListener(object : TextWatcher {
+//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//            }
+//
+//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                loadapi(p0.toString())
+//            }
+//
+//            override fun afterTextChanged(p0: Editable?) {
+//            }
+//
+//        })
+//
+//    }
 
     private fun loadapi(query: String) {
 //        cityViewModel.liveData.observe(this, {
@@ -91,4 +99,5 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
 }
