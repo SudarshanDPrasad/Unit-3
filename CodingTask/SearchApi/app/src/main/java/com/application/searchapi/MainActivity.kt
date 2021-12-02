@@ -90,6 +90,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 Status.SUCCESS -> {
+//                    activityMainBinding.floatingSearchView.swapSuggestions(getSuggestions(it))
                     list = it.data?.data?.addressList!!
                     val adaptor = CityAdaptor(list)
                     val layoutManager = LinearLayoutManager(this)
@@ -98,6 +99,16 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun getSuggestions(it: Resource<ResponseDTO>?): ArrayList<Suggestions>? {
+        val suggestions = ArrayList<Suggestions>()
+        val list = it?.data?.data?.addressList
+        list?.forEach {
+            val s = Suggestions(it.addressString)
+            suggestions.add(s)
+        }
+        return suggestions
     }
 
 }
