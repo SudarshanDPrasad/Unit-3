@@ -100,7 +100,8 @@ class MainActivity : AppCompatActivity() {
                     activityMainBinding.RecyclerViewSongList.adapter = adaptor
                     activityMainBinding.RecyclerViewSongList.layoutManager = layoutManager
 
-                    itunesViewModel.addApiData(it.data?.result!!)
+
+                    itunesViewModel.addApiData(it.data.result)
                 }
             }
         })
