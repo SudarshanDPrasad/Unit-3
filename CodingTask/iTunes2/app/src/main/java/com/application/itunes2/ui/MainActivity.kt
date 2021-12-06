@@ -84,7 +84,6 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-
     private fun loaddata(newQuery: String) {
 
         itunesViewModel.getData(newQuery).observe(this, {
