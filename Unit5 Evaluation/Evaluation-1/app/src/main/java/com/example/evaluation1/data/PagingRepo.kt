@@ -40,7 +40,6 @@ class PagingRepo(var personDao: PersonDao) {
         personDao.addTasks(listofPerson)
     }
 
-
     fun getPageslIst() =
         Pager(
             config = PagingConfig(
