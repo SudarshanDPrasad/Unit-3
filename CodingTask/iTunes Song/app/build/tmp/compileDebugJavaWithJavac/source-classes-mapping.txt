@@ -1,0 +1,8 @@
+com/application/itunessong/databinding/ItemLayoutBinding.java
+ com.application.itunessong.databinding.ItemLayoutBinding
+com/application/itunessong/BuildConfig.java
+ com.application.itunessong.BuildConfig
+com/application/itunessong/databinding/ActivityMainBinding.java
+ com.application.itunessong.databinding.ActivityMainBinding
+com/application/itunessong/DataBindingTriggerClass.java
+ com.application.itunessong.DataBindingTriggerClass

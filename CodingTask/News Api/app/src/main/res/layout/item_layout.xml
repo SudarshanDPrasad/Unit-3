@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="newslist"
+            type="com.application.newsapi.response.Article" />
+        
+        <variable
+            name="itemClickListener"
+            type="com.application.newsapi.clickinterface.Onclicking" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="6dp"
+        android:onClick="@{()->itemClickListener.OnClick(newslist)}"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/Iv_NewsImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv_NewsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="120dp"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:textSize="20sp"
+                android:textColor="#f2f2f2"
+                android:layout_marginRight="20dp"
+                android:text="@{newslist.title}" />
+
+            <TextView
+                android:id="@+id/tv_NewsAuthor"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:textSize="12sp"
+                android:textColor="#bababa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_NewsTitle"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="CNN" />
+
+            <TextView
+                android:id="@+id/tv_NewsPublishDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:textSize="12sp"
+                android:textColor="#bababa"
+                android:layout_below="@id/tv_NewsTitle"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/tv_NewsAuthor"
+                android:text="@{newslist.publishedAt}" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

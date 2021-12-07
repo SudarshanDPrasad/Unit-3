@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment2">
+
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.application.indianews.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment2_to_sportsFragment2"
+            app:destination="@id/sportsFragment2" />
+        <action
+            android:id="@+id/action_homeFragment2_to_autoMobileFragment"
+            app:destination="@id/autoMobileFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_businessFragment"
+            app:destination="@id/businessFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_entertainmentFragment"
+            app:destination="@id/entertainmentFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_technologyFragment"
+            app:destination="@id/technologyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sportsFragment2"
+        android:name="com.application.indianews.fragment.SportsFragment"
+        android:label="fragment_sports"
+        tools:layout="@layout/fragment_sports" >
+        <action
+            android:id="@+id/action_sportsFragment2_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/autoMobileFragment"
+        android:name="com.application.indianews.fragment.AutoMobileFragment"
+        android:label="AutoMobileFragment" >
+        <action
+            android:id="@+id/action_autoMobileFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/businessFragment"
+        android:name="com.application.indianews.fragment.BusinessFragment"
+        android:label="fragment_business"
+        tools:layout="@layout/fragment_business" >
+        <action
+            android:id="@+id/action_businessFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/entertainmentFragment"
+        android:name="com.application.indianews.fragment.EntertainmentFragment"
+        android:label="fragment_entertainment"
+        tools:layout="@layout/fragment_entertainment" >
+        <action
+            android:id="@+id/action_entertainmentFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/technologyFragment"
+        android:name="com.application.indianews.fragment.TechnologyFragment"
+        android:label="fragment_technology"
+        tools:layout="@layout/fragment_technology" >
+        <action
+            android:id="@+id/action_technologyFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+</navigation>
