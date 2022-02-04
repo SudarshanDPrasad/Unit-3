@@ -46,6 +46,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setAdaptor() {
 
+
+
         movieAdaptor = MovieAdaptor()
         val linearLayoutManager = LinearLayoutManager(this)
         activityMainBinding.recyclerview.apply {

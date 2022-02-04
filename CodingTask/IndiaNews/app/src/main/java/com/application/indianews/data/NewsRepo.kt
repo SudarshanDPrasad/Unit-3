@@ -1,6 +1,7 @@
 package com.application.indianews.data
 
 import com.application.indianews.reponse.ResponseDTO
+import retrofit2.http.Query
 
 class NewsRepo {
 
@@ -44,6 +45,24 @@ class NewsRepo {
     suspend fun getTechnologyData(): Resource<ResponseDTO> {
         return try {
             val response = NewsModule.ProvidesApi().getTechnology()
+            responseHandler.handleSuccess(response)
+        } catch (e: Exception){
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun getNationalData(): Resource<ResponseDTO> {
+        return try {
+            val response = NewsModule.ProvidesApi().getNational()
+            responseHandler.handleSuccess(response)
+        } catch (e: Exception){
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun getQueryData(query: String): Resource<ResponseDTO> {
+        return try {
+            val response = NewsModule.ProvidesApi().getQuery(query)
             responseHandler.handleSuccess(response)
         } catch (e: Exception){
             responseHandler.handleException(e)

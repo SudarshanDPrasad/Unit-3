@@ -31,9 +31,9 @@ class PagingSource : PagingSource<Int, Result>() {
 
         val pageNumber = params.key ?: 1
 
-        val responseModel = apiService.getAllDetails(pageNumber).flatMap { (_, results) ->
+        val responseModel = apiService.getAllDetails(pageNumber).flatMap { (_, res) ->
             Observable.fromIterable(
-                results
+                res
             )
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

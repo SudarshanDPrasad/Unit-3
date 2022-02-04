@@ -5,11 +5,22 @@
     tools:context=".fragment.HomeFragment">
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/et_QuerySearch"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_baseline_search_24"
+            android:paddingRight="20sp"
+            android:hint="Enter the required search category "
+            android:layout_margin="20sp"/>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -202,7 +213,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:scaleType="fitXY"
-                        android:src="@drawable/business" />
+                        android:src="@drawable/national" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -211,7 +222,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:padding="5dp"
-                        android:text="Business" />
+                        android:text="national" />
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>

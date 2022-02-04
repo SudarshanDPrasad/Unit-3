@@ -15,6 +15,5 @@ class IncomeRepo(val incomeDao: IncomeDao) {
 
     fun getallTask(): LiveData<List<IncomeTable>> {
         return incomeDao.getAllTask()
-
     }
 }

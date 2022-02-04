@@ -30,6 +30,10 @@ class NewsAdaptor(
     override fun getItemCount(): Int {
         return list.size
     }
+
+    override fun getItemViewType(position: Int): Int {
+        return super.getItemViewType(position)
+    }
 }
 
 class NewsHolder(
@@ -42,3 +46,17 @@ class NewsHolder(
             .into(itemLayoutBinding.IvNewsImage)
     }
 }
+
+/*
+
+What is a RecyclerView?
+RecyclerView is the ViewGroup that contains the views corresponding to your data
+
+Scrap (view): A child view that has entered into a temporarily detached state during layout.
+              Scrap views may be reused without becoming fully detached from the parent RecyclerView,
+              either unmodified if no rebinding is required or modified by the adapter
+              if the view was considered dirty.
+
+
+Dirty (view): A child view that must be rebound by the adapter before being displayed.
+ */

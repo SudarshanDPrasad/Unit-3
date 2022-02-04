@@ -1,5 +1,6 @@
 package com.application.indianews.data
 
+import android.app.DownloadManager
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
@@ -43,6 +44,20 @@ class NewsViewModel : ViewModel() {
     fun TechnologyData(): LiveData<Resource<ResponseDTO>> {
         return liveData(Dispatchers.IO) {
             val data = newsRepo.getTechnologyData()
+            emit(data)
+        }
+    }
+
+    fun NationalData(): LiveData<Resource<ResponseDTO>> {
+        return liveData(Dispatchers.IO) {
+            val data = newsRepo.getNationalData()
+            emit(data)
+        }
+    }
+
+    fun Querydata(query: String): LiveData<Resource<ResponseDTO>> {
+        return liveData(Dispatchers.IO) {
+            val data = newsRepo.getQueryData(query)
             emit(data)
         }
     }

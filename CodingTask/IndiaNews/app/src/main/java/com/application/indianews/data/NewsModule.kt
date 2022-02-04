@@ -14,16 +14,16 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NewsModule {
 
-    @Singleton
-    @Provides
-    fun ProvidesApi(): ApiNews {
-        val builder = Retrofit.Builder()
-            .baseUrl(" https://inshorts-news.vercel.app/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        @Singleton
+        @Provides
+        fun ProvidesApi(): ApiNews {
+            val builder = Retrofit.Builder()
+                .baseUrl("https://inshorts-news.vercel.app/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
 
-        return builder.create(ApiNews::class.java)
-    }
+            return builder.create(ApiNews::class.java)
+        }
 
 
 }
