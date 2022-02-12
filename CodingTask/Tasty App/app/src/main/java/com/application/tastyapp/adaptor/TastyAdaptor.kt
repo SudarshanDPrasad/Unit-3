@@ -27,7 +27,8 @@ class TastyAdaptor(
 
     override fun onBindViewHolder(holder: TastyHolder, position: Int) {
         holder.setData(foodList[position])
-        holder.mainScreenBinding.rvToClick.setOnClickListener{
+
+        holder.mainScreenBinding.ivMainLayout.setOnClickListener{
             onClickListener.onClickOfView(foodList[position])
         }
     }

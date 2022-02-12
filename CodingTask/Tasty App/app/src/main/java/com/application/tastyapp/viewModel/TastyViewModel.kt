@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.application.tastyapp.repo.TastyRepo
+import com.application.tastyapp.response.model.data.favdata.FavTable
+import com.application.tastyapp.response.model.data.logindata.LoginTable
 import com.application.tastyapp.response.model.frontScreen.ItemX
 import com.application.tastyapp.response.model.frontScreen.ResponseDto
 import com.application.tastyapp.response.model.frontScreen.ResultModel
@@ -14,7 +16,7 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class TastyViewModel @Inject constructor(val tastyRepo: TastyRepo): ViewModel() {
+class TastyViewModel @Inject constructor(val tastyRepo: TastyRepo) : ViewModel() {
 
 //    private var tastyRepo = TastyRepo()
 
@@ -25,4 +27,15 @@ class TastyViewModel @Inject constructor(val tastyRepo: TastyRepo): ViewModel() 
         }
     }
 
+    fun addData(loginTable: LoginTable) {
+        tastyRepo.addLogin(loginTable)
+    }
+
+    fun addDataFav(favTable: FavTable) {
+        tastyRepo.addData(favTable)
+    }
+
+    fun dataFromDb(): LiveData<List<FavTable>> {
+        return tastyRepo.getData()
+    }
 }

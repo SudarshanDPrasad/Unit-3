@@ -1,7 +1,12 @@
 package com.application.tastyapp.response.model.frontScreen
 
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
 
 data class NutritionX(
     @SerializedName("calories")
@@ -18,4 +23,4 @@ data class NutritionX(
     val sugar: Int,
     @SerializedName("updated_at")
     val updatedAt: String
-)
+) : Serializable
