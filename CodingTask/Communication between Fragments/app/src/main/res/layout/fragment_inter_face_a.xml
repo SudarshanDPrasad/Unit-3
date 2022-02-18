@@ -3,20 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewModelActivity.ViewModelAct">
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".interfaceActivity.InterfaceAct">
 
 
     <TextView
-        android:layout_width="wrap_content"
-        android:id="@+id/text"
+        android:layout_width="match_parent"
         android:layout_gravity="center"
-        android:layout_marginBottom="100dp"
-        android:layout_height="wrap_content" />
+        android:gravity="center"
+        android:id="@+id/TxtCountFragmentA"
+        android:layout_height="match_parent" />
+
+
     <Button
         android:layout_width="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:id="@+id/btnincrease"
+        android:id="@+id/btnIncreaseInterfaceFragmentA"
         android:layout_height="wrap_content"
         android:text="@string/hello_blank_fragment" />
 

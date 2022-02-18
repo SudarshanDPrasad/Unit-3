@@ -8,16 +8,20 @@ import android.view.ViewGroup
 import com.application.communicationbetweenactivity.R
 import kotlinx.android.synthetic.main.fragment_inter_face_a.*
 
-class InterFaceFragmentA : Fragment(R.layout.fragment_inter_face_a) {
+class InterFaceFragmentA : Fragment(R.layout.fragment_inter_face_a) , FragmentInterFaceB {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
-        btnIncreaseInterfaceFragment.setOnClickListener {
+        btnIncreaseInterfaceFragmentA.setOnClickListener {
             val activity : InterfaceAct = getActivity() as InterfaceAct
-            activity.setResult("Button1")
+            activity.setResultA("Button1")
         }
 
+    }
+
+    override fun setResultB(s: String) {
+        TxtCountFragmentA.setText("$s from Fragment B")
     }
 }

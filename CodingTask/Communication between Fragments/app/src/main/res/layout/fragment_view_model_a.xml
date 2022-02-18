@@ -5,11 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".viewModelActivity.ViewModelAct">
 
+
     <TextView
         android:layout_width="match_parent"
         android:gravity="center"
-        android:id="@+id/TxtCOunt"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/TxtCountViewModelA"
+        android:layout_height="match_parent"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:id="@+id/btnincreaseA"
+        android:layout_height="wrap_content"
+        android:text="Fragment A Button " />
 
 </FrameLayout>

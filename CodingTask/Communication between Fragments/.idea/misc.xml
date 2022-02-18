@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/unit-3-Projects/SudarshanGithub/CodingTask/Communication between Fragments/app/src/main/res/layout/activity_interface.xml" value="0.1" />
+        <entry key="..\:/unit-3-Projects/SudarshanGithub/CodingTask/Communication between Fragments/app/src/main/res/layout/activity_view_model.xml" value="0.20380434782608695" />
+        <entry key="..\:/unit-3-Projects/SudarshanGithub/CodingTask/Communication between Fragments/app/src/main/res/layout/fragment_inter_face_a.xml" value="0.20380434782608695" />
+        <entry key="..\:/unit-3-Projects/SudarshanGithub/CodingTask/Communication between Fragments/app/src/main/res/layout/fragment_inter_face_b.xml" value="0.20380434782608695" />
+        <entry key="..\:/unit-3-Projects/SudarshanGithub/CodingTask/Communication between Fragments/app/src/main/res/layout/fragment_view_model_a.xml" value="0.20380434782608695" />
+        <entry key="..\:/unit-3-Projects/SudarshanGithub/CodingTask/Communication between Fragments/app/src/main/res/layout/fragment_view_model_b.xml" value="0.25" />
         <entry key="..\:/unit-3-Projects/SudarshanGithub/CodingTask/Communication between activity/app/src/main/res/layout/activity_interface.xml" value="0.25" />
         <entry key="..\:/unit-3-Projects/SudarshanGithub/CodingTask/Communication between activity/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/unit-3-Projects/SudarshanGithub/CodingTask/Communication between activity/app/src/main/res/layout/activity_view_model.xml" value="0.1793478260869565" />
